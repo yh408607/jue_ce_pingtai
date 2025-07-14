@@ -1,0 +1,176 @@
+fileFormatVersion: 2
+guid: 3ead036d8a85f0a459beafe1dcb23e46
+timeCreated: 1563291420
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: DaTing1
+    100002: DingPeng
+    100004: GuangChang1
+    100006: //RootNode
+    100008: LuJi1
+    100010: LuJi2
+    100012: ShouPingTing1
+    100014: TeShiWang1
+    100016: YueTai
+    100018: ZhanTai1
+    100020: ZhanTai2
+    100022: ZhanTai3
+    100024: ZhanTai4
+    100026: ZouLang1
+    100028: ZouLang1 1
+    100030: ZouLang1_Ao
+    100032: ZouLang1_Glass
+    100034: DingPeng1
+    100036: YueTai1
+    100038: LuJi
+    400000: DaTing1
+    400002: DingPeng
+    400004: GuangChang1
+    400006: //RootNode
+    400008: LuJi1
+    400010: LuJi2
+    400012: ShouPingTing1
+    400014: TeShiWang1
+    400016: YueTai
+    400018: ZhanTai1
+    400020: ZhanTai2
+    400022: ZhanTai3
+    400024: ZhanTai4
+    400026: ZouLang1
+    400028: ZouLang1 1
+    400030: ZouLang1_Ao
+    400032: ZouLang1_Glass
+    400034: DingPeng1
+    400036: YueTai1
+    400038: LuJi
+    2100000: lambert2
+    2100002: lambert3
+    2100004: lambert7
+    2300000: DingPeng
+    2300002: GuangChang1
+    2300004: LuJi1
+    2300006: LuJi2
+    2300008: ShouPingTing1
+    2300010: TeShiWang1
+    2300012: ZhanTai1
+    2300014: ZhanTai2
+    2300016: ZhanTai3
+    2300018: ZhanTai4
+    2300020: ZouLang1 1
+    2300022: ZouLang1_Ao
+    2300024: ZouLang1_Glass
+    2300026: DingPeng1
+    2300028: LuJi
+    3300000: DingPeng
+    3300002: GuangChang1
+    3300004: LuJi1
+    3300006: LuJi2
+    3300008: ShouPingTing1
+    3300010: TeShiWang1
+    3300012: ZhanTai1
+    3300014: ZhanTai2
+    3300016: ZhanTai3
+    3300018: ZhanTai4
+    3300020: ZouLang1 1
+    3300022: ZouLang1_Ao
+    3300024: ZouLang1_Glass
+    3300026: DingPeng1
+    3300028: LuJi
+    4300000: DingPeng
+    4300002: TeShiWang1
+    4300004: GuangChang1
+    4300006: ShouPingTing1
+    4300008: ZouLang1
+    4300010: ZouLang1_Glass
+    4300012: ZouLang1_Ao
+    4300014: ZhanTai1
+    4300016: ZhanTai2
+    4300018: ZhanTai3
+    4300020: ZhanTai4
+    4300022: LuJi1
+    4300024: LuJi2
+    4300026: DingPeng1
+    4300028: LuJi
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 1
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

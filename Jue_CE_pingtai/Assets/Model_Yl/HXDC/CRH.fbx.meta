@@ -1,0 +1,149 @@
+fileFormatVersion: 2
+guid: 5d2d30c5f345eb5498dd892738383845
+timeCreated: 1564759084
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: HXDC_cheke
+    100004: HXDC_chetou
+    100006: HXDC_chexiang
+    100008: HXDC_chexiang1
+    100010: HXDC_chexiang2
+    100012: HXDC_dipan
+    100014: HXDC_dipan1
+    100016: HXDC_glass
+    100018: HXDC_jiashishi
+    100020: HXDC_jiashishi1
+    100022: HXDC_jiashishi2
+    100024: HXDC_logo
+    400000: //RootNode
+    400002: HXDC_cheke
+    400004: HXDC_chetou
+    400006: HXDC_chexiang
+    400008: HXDC_chexiang1
+    400010: HXDC_chexiang2
+    400012: HXDC_dipan
+    400014: HXDC_dipan1
+    400016: HXDC_glass
+    400018: HXDC_jiashishi
+    400020: HXDC_jiashishi1
+    400022: HXDC_jiashishi2
+    400024: HXDC_logo
+    2100000: cheke_mat2
+    2100002: cheke_mat
+    2100004: HXDC_dipan_mat1
+    2100006: HXDC_jiashishi1_mat
+    2100008: HXDC_jiashishi2_mat
+    2100010: HXDC_glass_mat
+    2100012: HXDC_cheke_mat
+    2100014: HXDC_logo1_mat
+    2300000: HXDC_cheke
+    2300002: HXDC_chexiang1
+    2300004: HXDC_chexiang2
+    2300006: HXDC_dipan
+    2300008: HXDC_dipan1
+    2300010: HXDC_glass
+    2300012: HXDC_jiashishi1
+    2300014: HXDC_jiashishi2
+    2300016: HXDC_logo
+    3300000: HXDC_cheke
+    3300002: HXDC_chexiang1
+    3300004: HXDC_chexiang2
+    3300006: HXDC_dipan
+    3300008: HXDC_dipan1
+    3300010: HXDC_glass
+    3300012: HXDC_jiashishi1
+    3300014: HXDC_jiashishi2
+    3300016: HXDC_logo
+    4300000: HXDC_chexiang2
+    4300002: HXDC_chexiang1
+    4300004: HXDC_dipan1
+    4300006: HXDC_jiashishi1
+    4300008: HXDC_jiashishi2
+    4300010: HXDC_dipan
+    4300012: HXDC_glass
+    4300014: HXDC_cheke
+    4300016: HXDC_logo
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
