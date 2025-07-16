@@ -26,7 +26,9 @@ public class Che_xian_sui_tu_lineData : BaseLineData
         //todo隧道的长度值需要模拟
         suidao_len = paragm.L_tunl;
         //suidao_len = 600;
-
+        //放大4倍
+        suidao_len = suidao_len * 4;
+        //suidao_len = 650;
         //计算坐标点
         calculatePath();
     }
@@ -95,7 +97,7 @@ public class Che_xian_sui_tu_lineData : BaseLineData
                         CreaterRoad.CreatRoad_new(path, "DunGou_Suidao", item.Name);
 
                         //创建土体与建筑
-                        creatorTuti();
+                        creatorTuti(path[0]);
                         break;
                     case "ludi_2":
                         path = item.path.ToArray();
@@ -171,8 +173,20 @@ public class Che_xian_sui_tu_lineData : BaseLineData
     /// <summary>
     /// 创建土体
     /// </summary>
-    private void creatorTuti()
+    private void creatorTuti(Vector3 pos)
     {
+        var path = "Prefab/tuti/tuti";
+        pos = new Vector3(pos.x, 4, pos.z);
+        _tuti = Loader.InstantilGameObject(path, null, pos).transform;
 
+        var temp = suidao_len / 100;
+        _tuti.transform.localScale = new Vector3(1, 1, temp);
+
+
+        _jianzu = _tuti.Find("jianzu_pos");
+
+        var jianzu_path = "Prefab/tuti/jianzu";
+        pos = new Vector3(0, 7, 75);
+        var jianzu = Loader.InstantilGameObject(jianzu_path, null, pos);
     }
 }
