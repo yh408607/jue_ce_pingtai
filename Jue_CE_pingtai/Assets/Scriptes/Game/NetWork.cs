@@ -134,7 +134,7 @@ public class NetWork :NoramlInstanceExample<NetWork>
                 var path = Url + child_result + "resultId=" + resultId + "&" + "fileName=" + FlieName;
                 Debug.LogFormat("发送的URL为{0},", path);
 #endif
-                request = UnityWebRequest.Get(path);
+               // request = UnityWebRequest.Get(path);
                 request.SetRequestHeader("Authorization", "Bearer " + token);
 
                 break;
