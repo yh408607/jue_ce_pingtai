@@ -20,7 +20,7 @@ public class NetWork :NoramlInstanceExample<NetWork>
 
     private string child_agrs = "/business/unity/getNeedParams";
 
-    private long resultId = 88;
+    private long resultId = 90;
 
     /// <summary>
     /// 用户是选择查看位移响应还是加速度响应，对应的结果
@@ -111,6 +111,8 @@ public class NetWork :NoramlInstanceExample<NetWork>
                 data.paramNames.Add("VehEffectType");
                 data.paramNames.Add("L_tunl");
 
+                data.paramNames.Add("Substructural_Type");
+
 
                 //设置data为json，并且转为utf-8格式
                 string str_json = JsonUtility.ToJson(data);
@@ -134,7 +136,7 @@ public class NetWork :NoramlInstanceExample<NetWork>
                 var path = Url + child_result + "resultId=" + resultId + "&" + "fileName=" + FlieName;
                 Debug.LogFormat("发送的URL为{0},", path);
 #endif
-               // request = UnityWebRequest.Get(path);
+                request = UnityWebRequest.Get(path);
                 request.SetRequestHeader("Authorization", "Bearer " + token);
 
                 break;
@@ -144,6 +146,9 @@ public class NetWork :NoramlInstanceExample<NetWork>
         }
 #endif
         //Debug.LogFormat("1111111发送的请求，请找原因，发送的地址为{0}", request.url);
+
+        DownloadHandlerBuffer handler = new DownloadHandlerBuffer();
+        request.downloadHandler = handler;
         yield return request.SendWebRequest();
 
         if (request.result == UnityWebRequest.Result.ConnectionError)
@@ -152,9 +157,15 @@ public class NetWork :NoramlInstanceExample<NetWork>
         }
         else
         {
-            Debug.Log("接收到信息Received: " + request.downloadHandler.text);
+            //Debug.Log("接收到信息Received: " + request.downloadHandler.text);
             string str = request.downloadHandler.text;
             action(str);
+
+
+            // 立即释放内存
+            request.Dispose();
+            handler.Dispose();
+            System.GC.Collect();
         }
 
 

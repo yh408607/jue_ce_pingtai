@@ -142,7 +142,17 @@ public class TrainController : MonoBehaviourInstanceExample<TrainController>
                 break;
         }
 
-        Vector3 star_point = new Vector3(2.5f, hight, 0);
+        var temp_start_x = 2.5f;
+        switch (GameManager.Instance.Substructural_Type)
+        {
+            case "che_xian_sui_tui":
+                //star_point = new Vector3(0, hight, 0);
+                temp_start_x = 0;
+                break;
+            default:
+                break;
+        }
+        Vector3 star_point = new Vector3(temp_start_x, hight, 0);
 
         var prefab_chetou = Loader.LoadPrefab(path + "chetou");
         var chetou = Instantiate(prefab_chetou, star_point, Quaternion.identity, this.transform);
@@ -161,7 +171,7 @@ public class TrainController : MonoBehaviourInstanceExample<TrainController>
             
             if (i == 0)
             {
-                star_point = new Vector3(2.5f, hight, chetou_chengxiang_length);
+                star_point = new Vector3(temp_start_x, hight, chetou_chengxiang_length);
             }
             else
             {
