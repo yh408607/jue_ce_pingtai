@@ -38,7 +38,7 @@ public class ContrPanel : BaseUI
             }
 
 
-            m_UiUitil.Get("test_image")._obj.SetActive(value);
+            //m_UiUitil.Get("test_image")._obj.SetActive(value);
             //GameManager.Instance.SetCammeraFlowType(value);
 
 
@@ -87,7 +87,7 @@ public class ContrPanel : BaseUI
 
         dropdownCallback(0);
 
-        mask = m_UiUitil.Get("test_image/mask")._image;
+       // mask = m_UiUitil.Get("test_image/mask")._image;
         
     }
 
@@ -107,7 +107,7 @@ public class ContrPanel : BaseUI
                 GameManager.Instance.GetChexiangData(step);
                 //Debug.Log(step);
 
-                ShowXchart(step);
+                //ShowXchart(step);
             }
             else
             {
@@ -186,8 +186,8 @@ public class ContrPanel : BaseUI
         //车身要归正
         TrainController.Instance.RestChexiangPose();
 
-        mask.rectTransform.anchoredPosition = new Vector2(20, mask.rectTransform.anchoredPosition.y);
-        mask.rectTransform.sizeDelta = new Vector2(680, mask.rectTransform.sizeDelta.y);
+        //mask.rectTransform.anchoredPosition = new Vector2(20, mask.rectTransform.anchoredPosition.y);
+        //mask.rectTransform.sizeDelta = new Vector2(680, mask.rectTransform.sizeDelta.y);
     }
 
     /// <summary>
@@ -379,32 +379,32 @@ public class ContrPanel : BaseUI
 
         //第二版本
 
-        m_UiUitil.Get("test_image")._obj.SetActive(false);
-        if (value < 1653) return;
-        value = value - 1653;
-        //Debug.Log(value);
-        var width = mask.rectTransform.sizeDelta.x;
-        //var temp = contrl_slider.maxValue ;
-        var temp = contrl_slider.maxValue - 1653;
-        width = 680 - (680 / temp) * value;
+        //m_UiUitil.Get("test_image")._obj.SetActive(false);
+        //if (value < 1653) return;
+        //value = value - 1653;
+        ////Debug.Log(value);
+        //var width = mask.rectTransform.sizeDelta.x;
+        ////var temp = contrl_slider.maxValue ;
+        //var temp = contrl_slider.maxValue - 1653;
+        //width = 680 - (680 / temp) * value;
 
-        var temp_y = -width / 2 + 340 + 18;
-        mask.rectTransform.anchoredPosition = new Vector2(temp_y, mask.rectTransform.anchoredPosition.y);
-        mask.rectTransform.sizeDelta = new Vector2(width, mask.rectTransform.sizeDelta.y);
+        //var temp_y = -width / 2 + 340 + 18;
+        //mask.rectTransform.anchoredPosition = new Vector2(temp_y, mask.rectTransform.anchoredPosition.y);
+        //mask.rectTransform.sizeDelta = new Vector2(width, mask.rectTransform.sizeDelta.y);
 
-        //将mask隐藏
-        m_UiUitil.Get("test_image")._obj.SetActive(true);
-        m_UiUitil.Get("test_image/mask")._image.color = new Color(1, 1, 1, 0);
+        ////将mask隐藏
+        //m_UiUitil.Get("test_image")._obj.SetActive(true);
+        //m_UiUitil.Get("test_image/mask")._image.color = new Color(1, 1, 1, 0);
 
 
-        if (width <= 340)
-        {
-            m_UiUitil.Get("test_image")._image.sprite = Loader.GetSprite("image/tu_2_2");
-        }
-        else
-        {
-            m_UiUitil.Get("test_image")._image.sprite = Loader.GetSprite("image/tu_2_1");
-        }
+        //if (width <= 340)
+        //{
+        //    m_UiUitil.Get("test_image")._image.sprite = Loader.GetSprite("image/tu_2_2");
+        //}
+        //else
+        //{
+        //    m_UiUitil.Get("test_image")._image.sprite = Loader.GetSprite("image/tu_2_1");
+        //}
 
 
     }

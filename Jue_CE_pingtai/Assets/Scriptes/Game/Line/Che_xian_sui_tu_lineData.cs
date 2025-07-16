@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,28 +23,22 @@ public class Che_xian_sui_tu_lineData : BaseLineData
         yuan_R = paragm.CR;
         youzhixian_length = paragm.ST_LenR;
 
-        //todo�����ĳ���ֵ��Ҫģ��
+        //todo隧道的长度值需要模拟
         suidao_len = paragm.L_tunl;
         //suidao_len = 600;
 
-        //���������
+        //计算坐标点
         calculatePath();
     }
 
     
     public override void calculatePath(string data)
     {
-        if (isquxian)
-        {
 
-        }else
-        {
-
-        }
     }
 
     /// <summary>
-    /// ������̼��㵱ǰ��������볯��
+    /// 根据里程计算当前的坐标点与朝向
     /// </summary>
     /// <param name="licheng"></param>
     /// <returns></returns>
@@ -52,6 +46,23 @@ public class Che_xian_sui_tu_lineData : BaseLineData
     {
         bujian_data data = new bujian_data();
 
+        if (isquxian)
+        {
+            //曲线计算曲线路径
+            Debug.LogError("曲线还未计算");
+        }
+        else
+        {
+            //计算直线
+            var star_y = TrainController.Instance.Start_Hitgh;//初始高度
+
+            Vector3 pos = new Vector3(0, 0, licheng);
+            Vector3 rota = new Vector3(0, 0, 0);
+
+            data.positon = pos;
+            data.rotation = rota;
+
+        }
 
         return data;
 
@@ -59,21 +70,109 @@ public class Che_xian_sui_tu_lineData : BaseLineData
 
     public override void CreatorRoad()
     {
-        Debug.Log("��ʼ������-��-��-�� ·��");
+        Debug.Log("开始创建车-线-隧-土 路线");
+
+        if (linePath.Count > 0)
+        {
+            //这是生成初始端
+            Vector3[] ludi_point = new Vector3[2] {
+
+                new Vector3(0,0,-200),
+                new Vector3(0, 0,0),
+            };
+            CreaterRoad.CreatRoad_new(ludi_point, "Guidao_ludi", "初始段");
+
+            foreach (var item in linePath)
+            {
+                switch (item.Name)
+                {
+                    case "ludi_1":
+                        var path = item.path.ToArray();
+                        CreaterRoad.CreatRoad_new(path, "Guidao_ludi", item.Name);
+                        break;
+                    case "suidao":
+                        path = item.path.ToArray();
+                        CreaterRoad.CreatRoad_new(path, "DunGou_Suidao", item.Name);
+
+                        //创建土体与建筑
+                        creatorTuti();
+                        break;
+                    case "ludi_2":
+                        path = item.path.ToArray();
+                        CreaterRoad.CreatRoad_new(path, "Guidao_ludi", item.Name);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            //隐藏地面
+            //隐藏地面
+            //GameObject.Find("地面").gameObject.SetActive(false);
+
+        }
     }
 
     protected override void calculatePath()
     {
-
-
-
+        linePath = new List<Baseline>();
         if (isquxian)
         {
 
         }
         else
         {
+            //直线生成
+            //直线情况，地基到Z-H点，后面就开始是桥梁，计算桥梁的总长度，每个桥梁桥墩的位置与沉降关系，桥梁后面还是地基
 
+            //缓和曲线长度不取值
+            huanqu_length = 0;
+
+            var star_Pos = Vector3.zero;
+            var end_pos = new Vector3(0, 0, zuozhixian_length);
+            ludi_line ludi_1 = new ludi_line("ludi_1");
+            ludi_1.path.Add(star_Pos);
+            ludi_1.path.Add(end_pos);
+            linePath.Add(ludi_1);
+
+            star_Pos = end_pos;
+
+            //隧道部分
+            suidao_line suidao = new suidao_line("suidao");
+            end_pos = new Vector3(0, 0, zuozhixian_length + suidao_len);
+            suidao.path.Add(star_Pos);
+            suidao.path.Add(end_pos);
+            suidao.suidao_len = suidao_len;
+            linePath.Add(suidao);
+            star_Pos = end_pos;
+            _suidao = suidao;
+
+            //后续延长线部分
+            //检测剩余长度
+            var totulLenth = zuozhixian_length + huanqu_length + yuan_length + huanqu_length + youzhixian_length;
+            var temp = totulLenth - star_Pos.z;
+            if (temp > 100)
+            {
+                end_pos = new Vector3(0, 0, totulLenth);
+            }
+            else
+            {
+                end_pos = new Vector3(0, 0, totulLenth + 300);
+            }
+            ludi_line ludi_2 = new ludi_line("ludi_2");
+            ludi_2.path.Add(star_Pos);
+            ludi_2.path.Add(end_pos);
+
+
+            linePath.Add(ludi_2);
         }
+    }
+
+    /// <summary>
+    /// 创建土体
+    /// </summary>
+    private void creatorTuti()
+    {
+
     }
 }

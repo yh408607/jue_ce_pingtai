@@ -10,12 +10,14 @@ public class GameManager : MonoBehaviourInstanceExample<GameManager>
 {
     private BaseLineData linedata;
     private TrainData trainData;
-    private int train_count=8;//列车编组信息
+    private int train_count;//列车编组信息
     private TrainType trainType;//列车的类型
     private lineParameterData lineParameterData;
 
+
     public TrainType TrainType { get => trainType; }
     public int Train_count { get => train_count; }
+    public string Substructural_Type { get; private set; }
     public GameObject Selected_gameobject { get => selected_gameobject;
         set {
          
@@ -81,8 +83,8 @@ public class GameManager : MonoBehaviourInstanceExample<GameManager>
         CreatorRoad();
 
         //创建列车数据.需要确定列车的类型与编组长度信息
-        TrainController.Instance.GenerateTarrin(TrainType.CHR, Train_count);
-        //TrainController.Instance.GenerateTarrin(TrainType.CHR);
+        //TrainController.Instance.GenerateTarrin(TrainType.CHR, Train_count);
+        TrainController.Instance.GenerateTarrin(TrainType.CHR);
 
         //隐藏UI
         UIManager.Instance.HideUIPanel("Mask_Panel");
@@ -161,6 +163,25 @@ public class GameManager : MonoBehaviourInstanceExample<GameManager>
             float yuanquxian = data.data.CR_Len;
 
             string VehEffectType = data.data.Substructural_Type;
+            switch (VehEffectType)
+            {
+                case "1"://车-线-隧-土
+                    Substructural_Type = "che_xian_sui_tui";
+                    break;
+                case "2"://列车-轨道-隧道系统模块
+                    Substructural_Type = "che_xian_sui";
+                    break;
+                case "3":
+                    //列车-轨道-路基系统模块
+                    Substructural_Type = "che_xian_luji";
+                    break;
+                case "4":
+                    //列车-轨道-桥梁系统模块
+                    Substructural_Type = "che_xian_qiao";
+                    break;
+                default:
+                    break;
+            }
 
             // calculateLine(isquxian, zuozhixian, huanqu, yuanquxian, yuan_R, youzhixian,data.data);
             //生成路线
@@ -170,6 +191,11 @@ public class GameManager : MonoBehaviourInstanceExample<GameManager>
             float[] TrainF = data.data.TrainF;
             TrainController.Instance.SetTrainTypeAndNumber(trian_type, TrainF);
         }
+
+
+        // 处理完成后强制GC
+        System.GC.Collect();
+        Resources.UnloadUnusedAssets();
 
 #endif
     }
@@ -230,8 +256,9 @@ public class GameManager : MonoBehaviourInstanceExample<GameManager>
         var type = paragm.Substructural_Type;
         switch (type)
         {
-            case "1":
-                Debug.LogError("");
+            case "1":// 列车 - 线-隧-土 -系统模块
+                //Debug.LogError("");
+                linedata = new Che_xian_sui_tu_lineData(paragm);
                 break;
             case "4"://列车-轨道-桥梁系统模块
                 linedata = new Che_xian_qiao_lineData(paragm);
