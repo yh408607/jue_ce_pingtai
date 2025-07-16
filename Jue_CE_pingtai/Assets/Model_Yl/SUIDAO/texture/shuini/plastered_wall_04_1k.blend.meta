@@ -1,19 +1,9 @@
 fileFormatVersion: 2
-guid: 434a519c13e6e374fb72f85cea960f3b
+guid: a2ad696e340f057448051e0ccea12724
 ModelImporter:
   serializedVersion: 20300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: gungousuidaowall
-    second: {fileID: 2100000, guid: 1277db5e3be201f4398beec060d4aa03, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: shuini
-    second: {fileID: 2100000, guid: c40d239130d75ef478a810a811381ba1, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

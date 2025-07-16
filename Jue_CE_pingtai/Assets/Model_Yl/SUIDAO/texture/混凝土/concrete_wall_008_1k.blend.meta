@@ -1,34 +1,9 @@
 fileFormatVersion: 2
-guid: fc274c01d4b6e2a448ced60f0a17d4a3
+guid: 12acd325818709440b32bf62a219132b
 ModelImporter:
   serializedVersion: 20300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tukuai_1
-    second: {fileID: 2100000, guid: 49ea05cd8582f824a85f070450871738, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tukuai_2
-    second: {fileID: 2100000, guid: c2b5336d1fe89904dbf5c605ed874160, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tukuai_3
-    second: {fileID: 2100000, guid: e2efcaa4713e9ef4fa485edcb8247a97, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tukuai_4
-    second: {fileID: 2100000, guid: dd7a90a198f3c67489df3f85c02fecdf, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tukuai_5
-    second: {fileID: 2100000, guid: b123d24c687369745a9bd99e08ccd383, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

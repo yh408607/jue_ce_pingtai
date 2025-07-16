@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 434a519c13e6e374fb72f85cea960f3b
+guid: bb4cd5bbde26bd2429d4ae88ed639333
 ModelImporter:
   serializedVersion: 20300
   internalIDToNameTable: []
@@ -7,13 +7,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: gungousuidaowall
-    second: {fileID: 2100000, guid: 1277db5e3be201f4398beec060d4aa03, type: 2}
+      name: tukuai_1
+    second: {fileID: 2100000, guid: 49ea05cd8582f824a85f070450871738, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: shuini
-    second: {fileID: 2100000, guid: c40d239130d75ef478a810a811381ba1, type: 2}
+      name: tukuai_2
+    second: {fileID: 2100000, guid: c2b5336d1fe89904dbf5c605ed874160, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tukuai_3
+    second: {fileID: 2100000, guid: e2efcaa4713e9ef4fa485edcb8247a97, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tukuai_4
+    second: {fileID: 2100000, guid: dd7a90a198f3c67489df3f85c02fecdf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tukuai_5
+    second: {fileID: 2100000, guid: b123d24c687369745a9bd99e08ccd383, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
