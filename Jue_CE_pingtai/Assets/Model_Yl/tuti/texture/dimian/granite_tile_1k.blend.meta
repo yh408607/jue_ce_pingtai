@@ -1,69 +1,9 @@
 fileFormatVersion: 2
-guid: b4005a3dc0805ba45828c88ba7e09684
+guid: e9e5e03e3ce8c2b45b39d9f7775c3ce0
 ModelImporter:
   serializedVersion: 20300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Mat3d66-11425709-29-62008
-    second: {fileID: 2100000, guid: 5128fa0b74ab1f948a4748770b944c18, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Mat3d66-11425709-41-12380
-    second: {fileID: 2100000, guid: 4d8b9f0aa94ec4247aec20da2a342cd7, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tyg_dimian
-    second: {fileID: 2100000, guid: f98d96113341b994aaf01abd9f9f424d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tyg_ggp
-    second: {fileID: 2100000, guid: d9179ade345cb0f4dbe3ea9d43f5b022, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tyg_jz
-    second: {fileID: 2100000, guid: 318f1a94df5af634fad4045e3474bdf7, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tyg_kantai
-    second: {fileID: 2100000, guid: 0f0c02513b9679241bb1a07448986159, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tyg_kuangjia
-    second: {fileID: 2100000, guid: 4538d7dcdd5131643a159a5e7fe32371, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tyg_qita
-    second: {fileID: 2100000, guid: ff246c1f06ef9504a905b22c4062363a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tyg_qt2
-    second: {fileID: 2100000, guid: 4ed163b27dacb384bba0ca7d6d67a6ad, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tyg_qt3
-    second: {fileID: 2100000, guid: 8150264d5d64efc4ca5f5348d1939741, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tyg_waiqiang
-    second: {fileID: 2100000, guid: f8efd3ecff4411a44b0366bf53cefe7a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tyg_windows
-    second: {fileID: 2100000, guid: de8096f0f02424c4fb66d6a92c033fad, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
