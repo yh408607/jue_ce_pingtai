@@ -23,7 +23,7 @@ public class Che_xian_sui_lineData : BaseLineData
 
         //todo隧道的长度值需要模拟
         suidao_len = paragm.L_tunl;
-        //suidao_len = 600;
+        suidao_len = 300;
 
         //计算坐标点
         calculatePath();
@@ -186,7 +186,14 @@ public class Che_xian_sui_lineData : BaseLineData
         }
         else
         {
+            //生成一个土体
+            var path = "Prefab/tuti/tuti";
+            var pos = new Vector3(_suidao.start_pos.x, 4, _suidao.start_pos.z);
+            var _tuti = Loader.InstantilGameObject(path, null, pos).transform;
 
+
+            var temp = suidao_len / 100;
+            _tuti.transform.localScale = new Vector3(1, 1, temp);
         }
 
 

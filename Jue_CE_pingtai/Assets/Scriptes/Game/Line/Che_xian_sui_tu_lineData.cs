@@ -186,7 +186,7 @@ public class Che_xian_sui_tu_lineData : BaseLineData
         _jianzu = _tuti.Find("jianzu_pos");
 
         var jianzu_path = "Prefab/tuti/jianzu";
-        pos = new Vector3(0, 7, 75);
+        pos = new Vector3(0, 22, 155);
         var jianzu = Loader.InstantilGameObject(jianzu_path, null, pos);
     }
 }

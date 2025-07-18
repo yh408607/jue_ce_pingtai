@@ -208,8 +208,11 @@ public class ContrPanel : BaseUI
                 case 1:
                     //放大系数为1000倍，保留俩位小数
 
-                    GameManager.Instance.fangdaxishu.pos_xishu = 10;
-                    GameManager.Instance.fangdaxishu.rota_xishu = 500;
+                    //GameManager.Instance.fangdaxishu.pos_xishu = 10;
+                    //GameManager.Instance.fangdaxishu.rota_xishu = 500;
+
+                    GameManager.Instance.fangdaxishu.pos_xishu = 20;
+                    GameManager.Instance.fangdaxishu.rota_xishu = 1000;
 
                     break;
                 case 2:

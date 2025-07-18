@@ -4,8 +4,8 @@ Shader "Custom/PBR Wireframe Simple"
     {
         // PBR  Ù–‘
         _Color("Color", Color) = (1,1,1,1)
-        _MainTex("Albedo", 2D) = "white" {}
-        _MetallicGlossMap("Metallic", 2D) = "white" {}
+        _MainTex("Albedo", 2D) = "green" {}
+        _MetallicGlossMap("Metallic", 2D) = "green" {}
         _Metallic("Metallic", Range(0,1)) = 0.0
         _Glossiness("Smoothness", Range(0,1)) = 0.5
         _BumpMap("Normal Map", 2D) = "bump" {}
