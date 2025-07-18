@@ -147,7 +147,7 @@ public class TrainController : MonoBehaviourInstanceExample<TrainController>
         {
             case "che_xian_sui_tui":
                 //star_point = new Vector3(0, hight, 0);
-                temp_start_x = 0;
+                temp_start_x = 2.5f;
                 break;
             default:
                 break;

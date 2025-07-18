@@ -243,8 +243,13 @@ public class GameManager : MonoBehaviourInstanceExample<GameManager>
                 trainData.GenerLichengData(licheng);
             }
         }
-#endif
 
+        //测试看看
+
+#endif
+        // 处理完成后强制GC
+        System.GC.Collect();
+        Resources.UnloadUnusedAssets();
     }
 
     /// <summary>
