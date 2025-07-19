@@ -3,12 +3,7 @@ guid: 77321d4a2be03c241848d6bfc3a70d13
 ModelImporter:
   serializedVersion: 20300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tukuai_1
-    second: {fileID: 2100000, guid: 094c1a34109cad549810080a82b32199, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
