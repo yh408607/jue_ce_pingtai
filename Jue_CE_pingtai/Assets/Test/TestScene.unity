@@ -308,6 +308,199 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1329740298
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5184075096409484102, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484102, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484102, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484102, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484102, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484102, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484102, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484102, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484102, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484102, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484102, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484104, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: m_Name
+      value: Road Network
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: OCCODDDOCC
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: OCCOQOOQDC
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: OOOQCOCOQD
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: toolbarInt
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: newRoadFlag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: activeTerrain
+      value: 
+      objectReference: {fileID: 373801671}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: activeTerrainY
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: dirtyOnSceneBool
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: selectedNewRoadType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: selectedRoadRoadType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: updateRoadPresetsAlert
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: selectedObjects.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: sideObjectNames.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: selectedObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1705396662}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: sideObjectNames.Array.data[0]
+      value: None Available
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: roadTypes.Array.data[0].roadWidth
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: roadTypes.Array.data[0].timestamp
+      value: 1752661582.0393052
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: roadTypes.Array.data[4].timestamp
+      value: 1751516226.016502
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: roadTypes.Array.data[5].timestamp
+      value: 1751523922.7401493
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: roadTypes.Array.data[0].roadTypeName
+      value: Guidao_ludi
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: roadTypes.Array.data[5].roadMaterial
+      value: 
+      objectReference: {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: inspRoadTypes.Array.data[0].roadWidth
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: inspRoadTypes.Array.data[0].timestamp
+      value: 1752661582.0393052
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: inspRoadTypes.Array.data[4].timestamp
+      value: 1751516226.016502
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: inspRoadTypes.Array.data[5].timestamp
+      value: 1751523922.7401493
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: inspRoadTypes.Array.data[0].roadTypeName
+      value: Guidao_ludi
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: inspRoadTypes.Array.data[5].roadMaterial
+      value: 
+      objectReference: {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: roadTypes.Array.data[0].soDataExt.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: roadTypes.Array.data[5].decalPresets.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: inspRoadTypes.Array.data[0].soDataExt.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: inspRoadTypes.Array.data[5].soDataExt.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: roadTypes.Array.data[5].decalPresets.Array.data[0]
+      value: 
+      objectReference: {fileID: 1706773863}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: inspRoadTypes.Array.data[5].decalPresets.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184075096409484105, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
+      propertyPath: inspRoadTypes.Array.data[5].decalPresets.Array.data[0]
+      value: 
+      objectReference: {fileID: 1706773863}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: efd61d8f96c21fa498ee83908d25f1f4, type: 3}
 --- !u!1 &1623364182
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,6 +635,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1705396662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 561528938, guid: f56d46228aee4734f9114056c53bb57e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roadScr: {fileID: 0}
+  prefabScr: {fileID: 0}
+  markers: 01000000
+--- !u!114 &1706773863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1072458106, guid: f56d46228aee4734f9114056c53bb57e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 689521936
+  name: No Name
+  type: 0
+  roadType1: 0
+  roadType2: 0
+  connection: 0
+  decalPrefab: {fileID: 0}
+  baseWidth: 6
+  meshWidth: 17.414272
+  scale: 1
+  localScale: {x: 1, y: 1, z: 1}
+  priority: 1
+  collapsed: 1
+  heightOffset: 0.005
+  material: {fileID: 0}
+  uvLeftTop: {x: 0.45, y: 0.75}
+  uvRightBottom: {x: 0.55, y: 0.25}
+  width: 0
+  length: 0
+  xOffset: 0
+  startOffset: 0
+  endOffset: 0
+  uvBreakPoints: []
+  distances: []
 --- !u!1 &2021985208
 GameObject:
   m_ObjectHideFlags: 0
