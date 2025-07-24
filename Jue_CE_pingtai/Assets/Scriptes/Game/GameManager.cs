@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 using System;
 using EasyRoads3Dv3;
 using LitJson;
+using System.IO;
 
 public class GameManager : MonoBehaviourInstanceExample<GameManager>
 {
@@ -88,10 +89,10 @@ public class GameManager : MonoBehaviourInstanceExample<GameManager>
 
         //隐藏UI
         UIManager.Instance.HideUIPanel("Mask_Panel");
-        ContrPanel ctr_panel = UIManager.Instance.ShowUIPanel("Contr_Panel") as ContrPanel;
-        var step = trainData.data_Count;
-        Vector2 min_max = new Vector2(0, step-1);
-        ctr_panel.SetSilderValueMaxAndMin(min_max);
+        //ContrPanel ctr_panel = UIManager.Instance.ShowUIPanel("Contr_Panel") as ContrPanel;
+        //var step = trainData.data_Count;
+        //Vector2 min_max = new Vector2(0, step-1);
+        //ctr_panel.SetSilderValueMaxAndMin(min_max);
     }
 
 
@@ -230,18 +231,23 @@ public class GameManager : MonoBehaviourInstanceExample<GameManager>
         //Debug.LogFormat("开始解析{0}的参数，获取到的参数长度为{1}", data_type, json.data.Length);
         if (json.code == 200)
         {
-            var datas = json.data;
-            trainData = new TrainData();
+            var str_temp = json.data;
 
-            foreach (string item in datas)
-            {
-                if (string.IsNullOrEmpty(item)) continue;
-                string[] temp = item.Split(default(char[]), StringSplitOptions.RemoveEmptyEntries);
+            //foreach (string item in datas)
+            //{
+            //    if (string.IsNullOrEmpty(item)) continue;
+            //    string[] temp = item.Split(default(char[]), StringSplitOptions.RemoveEmptyEntries);
 
-                LichengDta licheng = new LichengDta(temp);
+            //    LichengDta licheng = new LichengDta(temp);
 
-                trainData.GenerLichengData(licheng);
-            }
+            //    trainData.GenerLichengData(licheng);
+            //}
+
+            StartCoroutine(delayReaderString(str_temp));
+        }
+        else
+        {
+            Debug.LogErrorFormat("解析失败，失败信息为{0}", json.msg);
         }
 
         //测试看看
@@ -251,6 +257,51 @@ public class GameManager : MonoBehaviourInstanceExample<GameManager>
         System.GC.Collect();
         Resources.UnloadUnusedAssets();
     }
+
+    private IEnumerator delayReaderString(string str)
+    {
+        trainData = new TrainData();
+        using (StringReader reader = new StringReader(str))
+        {
+            string line;
+            List<string> temp_list = new List<string>();
+            int index = 0;
+            while ((line = reader.ReadLine()) != null)
+            {
+                temp_list.Add(line);
+                index++;
+                if (index >= 5000)
+                {
+                    index = 0;
+                    trainData.GenerLichengData(temp_list.ToArray());
+                    temp_list.Clear();
+
+                    // 处理完成后强制GC
+                    System.GC.Collect();
+                    yield return null;
+                }
+
+            }
+            trainData.GenerLichengData(temp_list.ToArray());
+            temp_list.Clear();
+        }
+
+        // 处理完成后强制GC
+        System.GC.Collect();
+        Debug.Log("数据处理完毕");
+
+        //数据处理完毕后需要处理的函数
+        delayDataCallBack();
+    }
+
+    private void delayDataCallBack()
+    {
+        ContrPanel ctr_panel = UIManager.Instance.ShowUIPanel("Contr_Panel") as ContrPanel;
+        var step = trainData.data_Count;
+        Vector2 min_max = new Vector2(0, step - 1);
+        ctr_panel.SetSilderValueMaxAndMin(min_max);
+    }
+
 
     /// <summary>
     /// 生成线路信息

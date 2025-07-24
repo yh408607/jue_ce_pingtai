@@ -7,31 +7,76 @@ public class TrainData
 {
     //这是每一个里程的数据列车数据
     private List<LichengDta> licheng_data = new List<LichengDta>();
+    private List<string[]> licheng_strData = new List<string[]>();
     public int data_Count
     {
         get
         {
-            return licheng_data.Count;
+            int count = 0;
+            foreach (var item in licheng_strData)
+            {
+                count += item.Length;
+            }
+
+            //return licheng_data.Count;
+            return count;
         }
     }
+
+    private int step_count = 5000;
 
     //public List<LichengDta> Licheng_data { get => licheng_data; }
 
     public LichengDta GetLicheng_Data(int index)
     {
-        if(index >= licheng_data.Count)
-        {
-            Debug.LogFormat("当前获取的索引为{0},数据的长度为{1}", index, licheng_data.Count);
-            return null;
-        }
+        //if(index >= licheng_data.Count)
+        //{
+        //    Debug.LogFormat("当前获取的索引为{0},数据的长度为{1}", index, licheng_data.Count);
+        //    return null;
+        //}
 
-        return licheng_data[index];
+        //return licheng_data[index];
+
+        //首先需要求出是那一列,那一行
+
+        int index_s = index / step_count;
+        int indx_y = index % step_count;
+        var temp_strs = licheng_strData[index_s];
+        var temp_data = temp_strs[indx_y];
+
+        //解析当前数组
+        string[] temp = temp_data.Split(default(char[]), StringSplitOptions.RemoveEmptyEntries);
+        LichengDta licheng = new LichengDta(temp);
+        return licheng;
+       // return parseCurrentArray(temp_data);
+
+    }
+
+    private LichengDta parseCurrentArray(string str)
+    {
+        string[] temp = str.Split(default(char[]), StringSplitOptions.RemoveEmptyEntries);
+        LichengDta licheng = new LichengDta(temp);
+        return licheng;
     }
 
 
     public void GenerLichengData(LichengDta lichengDta)
     {
         licheng_data.Add(lichengDta);
+    }
+
+    /// <summary>
+    /// 增加里程的内容
+    /// </summary>
+    /// <param name="lichengDta_strs"></param>
+    public void GenerLichengData(string[] _lichengDta_strs)
+    {
+        if (licheng_strData == null)
+        {
+            licheng_strData = new List<string[]>();
+        }
+        licheng_strData.Add(_lichengDta_strs);
+        Debug.LogFormat("当前的里程数据总长度为{0}，当个数据的长度为{1}", licheng_strData.Count, _lichengDta_strs.Length);
     }
 }
 

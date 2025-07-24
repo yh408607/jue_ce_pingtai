@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.Networking;
 using System;
 using System.Text;
+using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 public class NetWork :NoramlInstanceExample<NetWork>
 {
@@ -20,7 +23,9 @@ public class NetWork :NoramlInstanceExample<NetWork>
 
     private string child_agrs = "/business/unity/getNeedParams";
 
-    private long resultId = 88;
+    //private long resultId = 88;
+    private long resultId = 90;
+    //private long resultId = 104;
 
     /// <summary>
     /// 用户是选择查看位移响应还是加速度响应，对应的结果
@@ -48,7 +53,6 @@ public class NetWork :NoramlInstanceExample<NetWork>
 #elif UNITY_WEBGL || UNITY_EDITOR
 
         data_type = "列车位移响应";
-
 #endif
     }
 
@@ -161,6 +165,29 @@ public class NetWork :NoramlInstanceExample<NetWork>
             string str = request.downloadHandler.text;
             action(str);
 
+
+            //using (MemoryStream stream = new MemoryStream(request.downloadHandler.data))
+            //{
+            //    using (StreamReader reader = new StreamReader(stream))
+            //    {
+            //        using (JsonTextReader jsonReader = new JsonTextReader(reader))
+            //        {
+            //            while (jsonReader.Read())
+            //            {
+            //                Debug.Log("循环读取");
+            //                if (jsonReader.TokenType == JsonToken.StartObject)
+            //                {
+            //                    Debug.Log("开始处理对象");
+            //                    // 处理单个JSON对象
+            //                    JObject obj = JObject.Load(jsonReader);
+            //                    //ProcessJSONObject(obj);
+            //                    action(obj.ToString());
+            //                    yield return null; // 处理每个对象后让出一帧
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
 
             // 立即释放内存
             request.Dispose();
@@ -361,5 +388,6 @@ public class ServerLiChengData_Param
 {
     public int code;
     public string msg;
-    public string[] data;
+    //public string[] data;
+    public string data;
 }
