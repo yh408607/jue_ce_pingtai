@@ -180,6 +180,9 @@ public class GameManager : MonoBehaviourInstanceExample<GameManager>
                     //列车-轨道-桥梁系统模块
                     Substructural_Type = "che_xian_qiao";
                     break;
+                case "6":
+                    Substructural_Type = "che_xian";
+                    break;
                 default:
                     break;
             }
@@ -323,8 +326,11 @@ public class GameManager : MonoBehaviourInstanceExample<GameManager>
                 linedata = new Che_xian_sui_lineData(paragm);
                 break;
             case "3"://列车-轨道-路基系统模块
+                linedata = new Che_xian_luji_lineData(paragm);
                 break;
+            case "6":
 
+                break;
             default:
                 //没有配数据暂时车-线-隧
                 linedata = new Che_xian_sui_lineData(paragm);
@@ -364,7 +370,7 @@ public class GameManager : MonoBehaviourInstanceExample<GameManager>
 
         //隧道设置
 
-        _linedata.calculatePath("");
+        //_linedata.calculatePath("");
     }
 
     //动态生成道路
