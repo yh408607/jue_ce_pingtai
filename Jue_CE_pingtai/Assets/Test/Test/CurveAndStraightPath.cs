@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,13 +6,13 @@ using UnityEngine;
 public class CurveAndStraightPath : MonoBehaviour
 {
     public Vector3 center = Vector3.zero;
-    public Vector3 startPoint = Vector3.zero; // ÆğÊ¼µã (x0, y0)
-    public float radius = 10f;               // Ô²ÇúÏß°ë¾¶ R
-    public float curveLength = 15.70796f;    // Ô²ÇúÏß³¤¶È L (90¶È»¡³¤Ê¾Àı)
-    public float straightLength = 20f;       // Ö±Ïß³¤¶È
-    public GameObject pointPrefab;           // ÓÃÓÚ±ê¼ÇµãµÄÔ¤ÖÆÌå£¨¿ÉÑ¡£©
-    public bool drawWithLineRenderer = true; // ÊÇ·ñÓÃ LineRenderer »æÖÆ
-    public bool isClockwise = true;
+    public Vector3 startPoint = Vector3.zero; // èµ·å§‹ç‚¹ (x0, y0)
+    public float radius = 10f;               // åœ†æ›²çº¿åŠå¾„ R
+    public float curveLength = 15.70796f;    // åœ†æ›²çº¿é•¿åº¦ L (90åº¦å¼§é•¿ç¤ºä¾‹)
+    public float straightLength = 20f;       // ç›´çº¿é•¿åº¦
+    public GameObject pointPrefab;           // ç”¨äºæ ‡è®°ç‚¹çš„é¢„åˆ¶ä½“ï¼ˆå¯é€‰ï¼‰
+    public bool drawWithLineRenderer = true; // æ˜¯å¦ç”¨ LineRenderer ç»˜åˆ¶
+    public bool isClockwise = true;//é¡ºæ—¶é’ˆæˆ–è€…é€†æ—¶é’ˆ
 
     private void Start()
     {
@@ -23,7 +23,7 @@ public class CurveAndStraightPath : MonoBehaviour
     {
         float thetaStart = Mathf.Atan2(startPoint.z - center.z, startPoint.x - center.x);
 
-        // 3. ¼ÆËãÔ²ÇúÏßµÄÖÕµã½Ç¶ÈºÍ×ø±ê
+        // 3. è®¡ç®—åœ†æ›²çº¿çš„ç»ˆç‚¹è§’åº¦å’Œåæ ‡
         float theta = curveLength / radius;
         float thetaEnd = isClockwise ? thetaStart - theta : thetaStart + theta;
         Vector3 endPoint = new Vector3(
@@ -31,15 +31,15 @@ public class CurveAndStraightPath : MonoBehaviour
             center.z + radius * Mathf.Sin(thetaEnd)
         );
 
-        // 4. ¼ÆËãÇĞÏß·½Ïò£¨Ö±Ïß·½Ïò£©
+        // 4. è®¡ç®—åˆ‡çº¿æ–¹å‘ï¼ˆç›´çº¿æ–¹å‘ï¼‰
         Vector3 tangentDir = isClockwise ?
             new Vector3(Mathf.Sin(thetaEnd), 0,-Mathf.Cos(thetaEnd)) : // CW
             new Vector3(-Mathf.Sin(thetaEnd), 0,Mathf.Cos(thetaEnd));  // CCW
 
-        // 5. ¼ÆËãËùÓĞµã£¨Ô²ÇúÏß + Ö±Ïß£©
+        // 5. è®¡ç®—æ‰€æœ‰ç‚¹ï¼ˆåœ†æ›²çº¿ + ç›´çº¿ï¼‰
         List<Vector3> allPoints = new List<Vector3>();
 
-        // (A) Ô²ÇúÏß²¿·Ö£¨Ã¿¸ô1¶È²ÉÑù£©
+        // (A) åœ†æ›²çº¿éƒ¨åˆ†ï¼ˆæ¯éš”1åº¦é‡‡æ ·ï¼‰
         int numCurvePoints = Mathf.FloorToInt(theta * Mathf.Rad2Deg) + 1;
         for (int i = 0; i <= numCurvePoints; i++)
         {
@@ -51,7 +51,7 @@ public class CurveAndStraightPath : MonoBehaviour
             allPoints.Add(new Vector3(point.x, 0, point.z));
         }
 
-        // (B) Ö±Ïß²¿·Ö£¨Ã¿¸ô1µ¥Î»³¤¶È²ÉÑù£©
+        // (B) ç›´çº¿éƒ¨åˆ†ï¼ˆæ¯éš”1å•ä½é•¿åº¦é‡‡æ ·ï¼‰
         int numStraightPoints = Mathf.FloorToInt(straightLength) + 1;
         for (int i = 1; i <= numStraightPoints; i++)
         {
@@ -60,7 +60,7 @@ public class CurveAndStraightPath : MonoBehaviour
         }
 
 
-        // 4. ¿ÉÊÓ»¯£¨Éú³É GameObject »ò LineRenderer£©
+        // 4. å¯è§†åŒ–ï¼ˆç”Ÿæˆ GameObject æˆ– LineRendererï¼‰
         if (drawWithLineRenderer)
         {
             LineRenderer lineRenderer = gameObject.AddComponent<LineRenderer>();
@@ -76,7 +76,7 @@ public class CurveAndStraightPath : MonoBehaviour
 
         }
 
-        // ¿ÉÑ¡£ºÉú³É GameObject ±ê¼Çµã
+        // å¯é€‰ï¼šç”Ÿæˆ GameObject æ ‡è®°ç‚¹
         if (pointPrefab != null)
         {
             foreach (Vector3 point in allPoints)

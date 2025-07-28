@@ -100,11 +100,12 @@ public class Che_xian_qiao_lineData :BaseLineData
             //曲线生成,左直线是地基
             //曲线的起始点
 
-            Vector3 startPoint = new Vector3(0, 0, 0);
-
             //计算曲线总长度
             var temp_tutul_length = huanqu_length + yuan_length + huanqu_length;
             float totalAngleRad = temp_tutul_length / yuan_R;
+
+            Vector3 startPoint = new Vector3(0, 0, temp_tutul_length);
+
             //判断桥梁总长度是否大于曲线全部距离，如果大于，则桥梁有一部分在直线上，如果小于则桥梁全部在曲线上，需要计算曲线上路基的长度
             float brigth_length = 0;
             for (int i = 0; i < _bridge_list.Count; i++)
@@ -183,11 +184,16 @@ public class Che_xian_qiao_lineData :BaseLineData
             else
             {
                 //如果桥长度小于曲线长度，桥在曲线内，桥就在曲线的中间位置
+                //那么曲线就由地基曲线-桥梁曲线-地基曲线-地基直线四部分组成
+                //地基曲线的长度 =（曲线总长度-桥梁长度）/2
+
+
                 var temp = (temp_tutul_length - brigth_length) / 2;
 
+                //计算直线部分
                 var star_Pos = Vector3.zero;
                 var end_pos = new Vector3(0, 0, zuozhixian_length);
-                ludi_line ludi_1 = new ludi_line("qiao_2");
+                ludi_line ludi_1 = new ludi_line("luji_1");
                 ludi_1.path.Add(star_Pos);
                 ludi_1.path.Add(end_pos);
 
@@ -195,14 +201,43 @@ public class Che_xian_qiao_lineData :BaseLineData
 
                 star_Pos = end_pos;
 
-                //计算曲线部分 暂时分成10个点
-                qiao_line qiao_2 = new qiao_line("qiao");
-                var temp_totalAngleRad = temp / yuan_R;
-                for (int i = 0; i < 10; i++)
-                {
+                //曲线部分有一段地基
+                List<Vector3> luji_2_path = calculateQuxianPath(temp, star_Pos, (int)temp);
+                ludi_line ludi_2 = new ludi_line("luji_2");
+                ludi_2.path = luji_2_path;
+                var temp_indx = luji_2_path.Count - 1;
+                star_Pos = luji_2_path[temp_indx];
 
-                }
+                linePath.Add(ludi_2);
 
+                //桥梁部分
+                List<Vector3> qiao_path = calculateQuxianPath(brigth_length, star_Pos, (int)brigth_length);
+                qiao_line qiao = new qiao_line("qiao_1");
+                qiao.path = qiao_path;
+                temp_indx = qiao_path.Count - 1;
+                star_Pos = qiao_path[temp_indx];
+
+                linePath.Add(qiao);
+
+                //地基曲线部分
+                List<Vector3> luji_3_path = calculateQuxianPath(temp, star_Pos, (int)temp);
+                ludi_line ludi_3 = new ludi_line("luji_3");
+                ludi_3.path = luji_3_path;
+                temp_indx = luji_3_path.Count - 1;
+                star_Pos = luji_3_path[temp_indx];
+
+                linePath.Add(ludi_3);
+
+                //直线部分
+                float thetaStart = Mathf.Atan2(startPoint.z - center.z, startPoint.x - center.x);
+                float thetaEnd = thetaStart - totalAngleRad;
+                Vector3 tangentDir = new Vector3(Mathf.Sin(thetaEnd), 0, -Mathf.Cos(thetaEnd));
+                end_pos = star_Pos + tangentDir * 500;
+                ludi_line ludi_4 = new ludi_line("luji_4");
+                ludi_4.path.Add(star_Pos);
+                ludi_4.path.Add(end_pos);
+
+                linePath.Add(ludi_4);
             }
         }
         else
@@ -213,7 +248,7 @@ public class Che_xian_qiao_lineData :BaseLineData
             //地基部分 左直线+直缓点
             var star_Pos = Vector3.zero;
             var end_pos = new Vector3(0, 0, zuozhixian_length);
-            ludi_line ludi_1 = new ludi_line("qiao_2");
+            ludi_line ludi_1 = new ludi_line("luji_1");
             ludi_1.path.Add(star_Pos);
             ludi_1.path.Add(end_pos);
 
@@ -253,7 +288,7 @@ public class Che_xian_qiao_lineData :BaseLineData
             {
                 end_pos = new Vector3(0, 0, totulLenth+300);
             }
-            ludi_line ludi_2 = new ludi_line("luji");
+            ludi_line ludi_2 = new ludi_line("luji_2");
             ludi_2.path.Add(star_Pos);
             ludi_2.path.Add(end_pos);
 
@@ -616,12 +651,12 @@ public class Che_xian_qiao_lineData :BaseLineData
         {
             switch (item.Name)
             {
-                case "qiao_2":
+                case "luji_1":
                     var path = item.path.ToArray();
                     CreaterRoad.CreatRoad_new(path, "Guidao_luji", item.Name);
                     break;
 
-                case "luji":
+                case "luji_2":
                     path = item.path.ToArray();
                     CreaterRoad.CreatRoad_new(path, "Guidao_luji", item.Name);
                     break;

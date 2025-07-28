@@ -23,7 +23,7 @@ public class Che_xian_sui_lineData : BaseLineData
 
         //todo隧道的长度值需要模拟
         suidao_len = paragm.L_tunl;
-        suidao_len = 300;
+        //suidao_len = 300;
 
         //计算坐标点
         calculatePath();
