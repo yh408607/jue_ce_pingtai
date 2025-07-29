@@ -23,9 +23,9 @@ public class NetWork :NoramlInstanceExample<NetWork>
 
     private string child_agrs = "/business/unity/getNeedParams";
 
-    //private long resultId = 88;
-    private long resultId = 90;
-    //private long resultId = 104;
+    //private long resultId = 74;
+    //private long resultId = 90;
+    private long resultId = 103;
 
     /// <summary>
     /// 用户是选择查看位移响应还是加速度响应，对应的结果

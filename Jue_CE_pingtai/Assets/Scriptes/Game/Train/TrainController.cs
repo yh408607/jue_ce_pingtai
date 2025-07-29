@@ -242,6 +242,8 @@ public class TrainController : MonoBehaviourInstanceExample<TrainController>
 
         //TODO 计算旋转角度这里需要将每个车厢的旋转角度进行计算，由于是直线先不做考虑
 
+        this.transform.rotation = Quaternion.Euler(_che.rotation);
+
         //应用车厢数据
         if (chengxiang_list.Count != lichengDta.chexiangdata_list.Count)
         {
