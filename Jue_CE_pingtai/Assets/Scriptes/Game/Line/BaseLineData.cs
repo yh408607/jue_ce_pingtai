@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public abstract class BaseLineData 
 {
@@ -58,72 +59,14 @@ public abstract class BaseLineData
 
         if (isquxian)
         {
-            var zhixian_quxian = zuozhixian_length + huanqu_length * 2 + yuan_length;
 
-            if(licheng<= zuozhixian_length)
-            {
-                //计算直线
-                var star_y = TrainController.Instance.Start_Hitgh;//初始高度
 
-                Vector3 pos = new Vector3(0, 0, licheng);
-                Vector3 rota = new Vector3(0, 0, 0);
-
-                data.positon = pos;
-                data.rotation = rota;
-            }
-            else if (licheng > zuozhixian_length && licheng <= zhixian_quxian)
-            {
-                //里程在曲线内
-                var temp = zhixian_quxian - zuozhixian_length;
-                var start_pos = new Vector3(0, 0, zuozhixian_length);
-
-                float thetaStart = Mathf.Atan2(start_pos.z - center.z, start_pos.x - center.x);
-                float theta = temp / yuan_R;
-                float thetaEnd = thetaStart - theta;//顺时针选择
-
-                Vector3 pos = new Vector3(
-                            center.x + yuan_R * Mathf.Cos(thetaEnd), 0,
-                            center.z + yuan_R * Mathf.Sin(thetaEnd)
-                );
-
-                // 4. 计算切线方向（直线方向）
-                var rota = new Vector3(Mathf.Sin(thetaEnd), 0, -Mathf.Cos(thetaEnd));
-
-                data.positon = pos;
-                data.rotation = rota;
-            }
-            else
-            {
-                //里程在曲线外，进入到右直线了
-                var start_pos = new Vector3(0, 0, zuozhixian_length);
-                float thetaStart = Mathf.Atan2(start_pos.z - center.z, start_pos.x - center.x);
-                float theta = (huanqu_length*2+yuan_length) / yuan_R;
-                float thetaEnd = thetaStart - theta;//顺时针选择
-
-                Vector3 endPos = new Vector3(
-                            center.x + yuan_R * Mathf.Cos(thetaEnd), 0,
-                            center.z + yuan_R * Mathf.Sin(thetaEnd)
-                );
-
-                // 4. 计算切线方向（直线方向）
-                Vector3 tangentDir = new Vector3(Mathf.Sin(thetaEnd), 0, -Mathf.Cos(thetaEnd));
-                var temp_length = licheng - zhixian_quxian;
-                Vector3 point = endPos + tangentDir * temp_length;
-
-                data.positon = point;
-                data.rotation = tangentDir;
-            }
+            return CalculatePointAndRotation_Quxian(licheng);
         }
         else
         {
-            //计算直线
-            var star_y = TrainController.Instance.Start_Hitgh;//初始高度
 
-            Vector3 pos = new Vector3(0, 0, licheng);
-            Vector3 rota = new Vector3(0, 0, 0);
-
-            data.positon = pos;
-            data.rotation = rota;
+            return CalculatePointAndRotation_Zhixian(licheng);
         }
 
         return data;
@@ -157,6 +100,141 @@ public abstract class BaseLineData
         }
 
         return allPoints;
+    }
+
+    /// <summary>
+    /// 计算直线上的路径点
+    /// </summary>
+    /// <param name="length"></param>
+    /// <param name="star_pos"></param>
+    /// <param name="tangentDir"></param>
+    /// <param name="thetaStart"></param>
+    /// <returns></returns>
+    protected virtual List<Vector3> calculateZhixianPath(float length,Vector3 star_pos, Vector3 tangentDir, float thetaStart )
+    {
+        List<Vector3> allPoints = new List<Vector3>();
+        int step = (int)length;
+
+        for (int i = 0; i < step; i++)
+        {
+            float l = length / step * i;
+            float theta = l / yuan_R;
+            float thetaEnd = thetaStart - theta;
+            Vector3 pos = star_pos + tangentDir * 500;
+            allPoints.Add(pos);
+        }
+
+        return allPoints;
+    }
+    /// <summary>
+    /// 根据起始点位置，长度形成坐标点
+    /// </summary>
+    /// <param name="length"></param>
+    /// <param name="start_pos"></param>
+    /// <returns></returns>
+    protected virtual Vector3 calculatePosForLength(float length,Vector3 start_pos)
+    {
+        Vector3 temp = new Vector3(0, 0, 0);
+        float thetaStart = Mathf.Atan2(start_pos.z - center.z, start_pos.x - center.x);
+        float theta = length / yuan_R;
+        float thetaEnd = thetaStart - theta;//顺时针选择
+
+        temp = new Vector3(
+                    center.x + yuan_R * Mathf.Cos(thetaEnd), 0,
+                    center.z + yuan_R * Mathf.Sin(thetaEnd)
+        );
+        return temp;
+    }
+
+    protected virtual bujian_data CalculatePointAndRotation_Quxian(float licheng)
+    {
+        bujian_data data = new bujian_data();
+        //曲线计算曲线路径
+        //Debug.LogError("曲线还未计算");
+        var zhixian_quxian = zuozhixian_length + huanqu_length * 2 + yuan_length;
+        var star_y = TrainController.Instance.Start_Hitgh;//初始高度
+
+        if (licheng <= zuozhixian_length)
+        {
+            //计算直线
+            //var star_y = TrainController.Instance.Start_Hitgh;//初始高度
+
+            Vector3 pos = new Vector3(0, 0, licheng);
+            Vector3 rota = new Vector3(0, 0, 0);
+
+            data.positon = pos;
+            data.rotation = rota;
+        }
+        else if (licheng > zuozhixian_length && licheng <= zhixian_quxian)
+        {
+            //里程在曲线内
+            //var temp = zhixian_quxian - zuozhixian_length;
+            var temp = licheng - zuozhixian_length;
+            var start_pos = new Vector3(0, 0, zuozhixian_length);
+
+            float thetaStart = Mathf.Atan2(start_pos.z - center.z, start_pos.x - center.x);
+            float theta = temp / yuan_R;
+            float thetaEnd = thetaStart - theta;//顺时针选择
+
+            Vector3 pos = new Vector3(
+                        center.x + yuan_R * Mathf.Cos(thetaEnd), 0,
+                        center.z + yuan_R * Mathf.Sin(thetaEnd)
+            );
+
+            // 4. 计算切线方向（直线方向）
+            //将弧度转为角度，
+            float degree = thetaEnd * Mathf.Rad2Deg;
+            var rota = new Vector3(0, 180 - degree, 0);
+
+            data.positon = pos;
+            data.rotation = rota;
+        }
+        else
+        {
+            //里程在曲线外，进入到右直线了
+            var start_pos = new Vector3(0, star_y, zuozhixian_length);
+            float thetaStart = Mathf.Atan2(start_pos.z - center.z, start_pos.x - center.x);
+            float theta = (huanqu_length * 2 + yuan_length) / yuan_R;
+            float thetaEnd = thetaStart - theta;//顺时针选择
+
+            Vector3 endPos = new Vector3(
+                        center.x + yuan_R * Mathf.Cos(thetaEnd), 0,
+                        center.z + yuan_R * Mathf.Sin(thetaEnd)
+            );
+
+            // 4. 计算切线方向（直线方向）
+            Vector3 tangentDir = new Vector3(Mathf.Sin(thetaEnd), 0, -Mathf.Cos(thetaEnd));
+            var temp_length = licheng - zhixian_quxian;
+            Vector3 point = endPos + tangentDir * temp_length;
+
+            //将弧度转为角度，
+            float degree = thetaEnd * Mathf.Rad2Deg;
+            var rota = new Vector3(0, 180 - degree, 0);
+
+            data.positon = point;
+            data.rotation = rota;
+        }
+
+        return data;
+    }
+
+    protected virtual bujian_data CalculatePointAndRotation_Zhixian(float licheng)
+    {
+        bujian_data data = new bujian_data();
+        //曲线计算曲线路径
+        //Debug.LogError("曲线还未计算");
+        var zhixian_quxian = zuozhixian_length + huanqu_length * 2 + yuan_length;
+
+        //计算直线
+        var star_y = TrainController.Instance.Start_Hitgh;//初始高度
+
+        Vector3 pos = new Vector3(0, 0, licheng);
+        Vector3 rota = new Vector3(0, 0, 0);
+
+        data.positon = pos;
+        data.rotation = rota;
+
+        return data;
     }
 
 }

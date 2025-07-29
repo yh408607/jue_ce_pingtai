@@ -24,12 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9177051863595673694}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6296880982980536784
 MonoBehaviour:
@@ -707,7 +708,7 @@ MonoBehaviour:
   - version: 2.0.0
     name: Ludi
     id: 1747290161.3672705
-    timestamp: 1749432432.0114307
+    timestamp: 1753761247.1670144
     objectType: 0
     gameobjectGUID: 
     textureGUID: 
@@ -785,8 +786,8 @@ MonoBehaviour:
     xOffset: 0
     startOffset: 0
     endOffset: 0
-    defaultStartOffset: 32
-    defaultEndOffset: -32
+    defaultStartOffset: 10
+    defaultEndOffset: -10
     totalZDistance: 125.46794
     middleZDistance: 10
     startZDistance: -2000

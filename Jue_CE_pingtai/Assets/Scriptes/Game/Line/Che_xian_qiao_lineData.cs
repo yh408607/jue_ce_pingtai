@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class Che_xian_qiao_lineData :BaseLineData
 {
@@ -22,6 +23,8 @@ public class Che_xian_qiao_lineData :BaseLineData
         /// 桥的沉降位移
         /// </summary>
         public Vector3 chengjiang_pos;
+
+        
     }
 
     private List<Vector3> paths;
@@ -53,7 +56,7 @@ public class Che_xian_qiao_lineData :BaseLineData
         float[] bride_len = _Paragm.Len_Bri;
         float[] x_bs = _Paragm.XB1;
         float[] y_bs = _Paragm.YB1;
-        float[] z_bs = _Paragm.ZB1;
+        float[] z_bs = _Paragm.ZB1; 
 
         //设置沉降点
         SetBridgeData(x_bs, y_bs, z_bs, bride_len);
@@ -71,6 +74,14 @@ public class Che_xian_qiao_lineData :BaseLineData
         _bridge_list = new List<qiao_dun>();
 
         var length = bridges.Length;
+
+        if (xb.Length < length)
+        {
+            xb = setXb_yb_zb(xb, length+1);
+            yb = setXb_yb_zb(yb, length+1);
+            zb = setXb_yb_zb(zb, length+1);
+        }
+
         for (int i = 0; i <= length; i++)
         {
             var qiao_dun = new qiao_dun();
@@ -89,6 +100,25 @@ public class Che_xian_qiao_lineData :BaseLineData
         }
     }
 
+    //桥墩判断，是否有设置沉降，没有则自动填满
+    private float[] setXb_yb_zb(float[] xb,int length)
+    {
+        float[] temp = new float[length];
+
+        for (int j = 0; j < length; j++)
+        {
+            if (j < xb.Length)
+            {
+                temp[j] = xb[j];
+            }
+            else
+            {
+                temp[j] = 0;
+            }
+        }
+        return temp;
+    }
+
     /// <summary>
     /// 计算路径点
     /// </summary>
@@ -104,7 +134,7 @@ public class Che_xian_qiao_lineData :BaseLineData
             var temp_tutul_length = huanqu_length + yuan_length + huanqu_length;
             float totalAngleRad = temp_tutul_length / yuan_R;
 
-            Vector3 startPoint = new Vector3(0, 0, temp_tutul_length);
+            Vector3 startPoint = new Vector3(0, 0, zuozhixian_length);
 
             //判断桥梁总长度是否大于曲线全部距离，如果大于，则桥梁有一部分在直线上，如果小于则桥梁全部在曲线上，需要计算曲线上路基的长度
             float brigth_length = 0;
@@ -210,22 +240,61 @@ public class Che_xian_qiao_lineData :BaseLineData
 
                 linePath.Add(ludi_2);
 
-                //桥梁部分
-                List<Vector3> qiao_path = calculateQuxianPath(brigth_length, star_Pos, (int)brigth_length);
-                qiao_line qiao = new qiao_line("qiao_1");
-                qiao.path = qiao_path;
-                temp_indx = qiao_path.Count - 1;
-                star_Pos = qiao_path[temp_indx];
+                ////桥梁部分
+                //List<Vector3> qiao_path = calculateQuxianPath(brigth_length, star_Pos, (int)brigth_length);
+                //qiao_line qiao = new qiao_line("qiao");
+                //qiao.path = qiao_path;
+                //temp_indx = qiao_path.Count - 1;
+                //star_Pos = qiao_path[temp_indx];
+                ////计算桥墩的坐标与旋转角度
+                //qiao.qiaodun_number = _bridge_list.Count;
+                //计算桥墩的位置与方向
+                qiao_line qiao = new qiao_line("qiao");
+                List<Vector3> pos = new List<Vector3>();
+                List<Vector3> qiao_dun_pos = new List<Vector3>();
+                if (_bridge_list.Count > 0)
+                {
+   
+                    for (int i = 0; i < _bridge_list.Count; i++)
+                    {
+                        var qiao_length  = _bridge_list[i].qiao_length;
+                        List<Vector3> qiao_path = calculateQuxianPath(qiao_length, star_Pos, (int)qiao_length);
+                        //计算沉降
+                        temp_indx = qiao_path.Count - 1;
+                        if(temp_indx<= 0)
+                        {
+                            qiao_dun_pos.Add(star_Pos);
+                        }
+                        else
+                        {
+                            qiao_dun_pos.Add(qiao_path[temp_indx]);
+                            qiao_path[temp_indx] = qiao_path[temp_indx] + _bridge_list[i].chengjiang_pos;
+                            star_Pos = qiao_path[temp_indx];
+                        }              
+
+                        pos.AddRange(qiao_path);
+                        //计算桥墩的位置与旋转角度
+                        // qiao.qiaodun_number = _bridge_list.Count;
+
+                    }
+                }
+
+                qiao.path = pos;
+                qiao.qiaodun_number = _bridge_list.Count;
+                qiao.qiaodun_pos = qiao_dun_pos;
+                temp_indx = pos.Count - 1;
+                star_Pos = pos[temp_indx];
 
                 linePath.Add(qiao);
 
+                // linePath.Add(qiao);
+
                 //地基曲线部分
                 List<Vector3> luji_3_path = calculateQuxianPath(temp, star_Pos, (int)temp);
-                ludi_line ludi_3 = new ludi_line("luji_3");
+                ludi_line ludi_3 = new ludi_line("luji_1");
                 ludi_3.path = luji_3_path;
                 temp_indx = luji_3_path.Count - 1;
                 star_Pos = luji_3_path[temp_indx];
-
                 linePath.Add(ludi_3);
 
                 //直线部分
@@ -233,10 +302,9 @@ public class Che_xian_qiao_lineData :BaseLineData
                 float thetaEnd = thetaStart - totalAngleRad;
                 Vector3 tangentDir = new Vector3(Mathf.Sin(thetaEnd), 0, -Mathf.Cos(thetaEnd));
                 end_pos = star_Pos + tangentDir * 500;
-                ludi_line ludi_4 = new ludi_line("luji_4");
+                ludi_line ludi_4 = new ludi_line("luji_2");
                 ludi_4.path.Add(star_Pos);
                 ludi_4.path.Add(end_pos);
-
                 linePath.Add(ludi_4);
             }
         }
@@ -528,10 +596,9 @@ public class Che_xian_qiao_lineData :BaseLineData
             //todo没做完，继续做
 
         }
-
-
     }
 
+    /*
     /// <summary>
     /// 根据里程计算当前的坐标点与朝向
     /// </summary>
@@ -544,7 +611,69 @@ public class Che_xian_qiao_lineData :BaseLineData
         if (isquxian)
         {
             //曲线计算曲线路径
-            Debug.LogError("曲线还未计算");
+            //Debug.LogError("曲线还未计算");
+            var zhixian_quxian = zuozhixian_length + huanqu_length * 2 + yuan_length;
+
+            if (licheng <= zuozhixian_length)
+            {
+                //计算直线
+                var star_y = TrainController.Instance.Start_Hitgh;//初始高度
+
+                Vector3 pos = new Vector3(0, 0, licheng);
+                Vector3 rota = new Vector3(0, 0, 0);
+
+                data.positon = pos;
+                data.rotation = rota;
+            }
+            else if (licheng > zuozhixian_length && licheng <= zhixian_quxian)
+            {
+                //里程在曲线内
+                //var temp = zhixian_quxian - zuozhixian_length;
+                var temp = licheng - zuozhixian_length;
+                var start_pos = new Vector3(0, 0, zuozhixian_length);
+
+                float thetaStart = Mathf.Atan2(start_pos.z - center.z, start_pos.x - center.x);
+                float theta = temp / yuan_R;
+                float thetaEnd = thetaStart - theta;//顺时针选择
+
+                Vector3 pos = new Vector3(
+                            center.x + yuan_R * Mathf.Cos(thetaEnd), 0,
+                            center.z + yuan_R * Mathf.Sin(thetaEnd)
+                );
+
+                // 4. 计算切线方向（直线方向）
+                //将弧度转为角度，
+                float degree = thetaEnd * Mathf.Rad2Deg;
+                var rota = new Vector3(0,180-degree,0);
+
+                data.positon = pos;
+                data.rotation = rota;
+            }
+            else
+            {
+                //里程在曲线外，进入到右直线了
+                var start_pos = new Vector3(0, 0, zuozhixian_length);
+                float thetaStart = Mathf.Atan2(start_pos.z - center.z, start_pos.x - center.x);
+                float theta = (huanqu_length * 2 + yuan_length) / yuan_R;
+                float thetaEnd = thetaStart - theta;//顺时针选择
+
+                Vector3 endPos = new Vector3(
+                            center.x + yuan_R * Mathf.Cos(thetaEnd), 0,
+                            center.z + yuan_R * Mathf.Sin(thetaEnd)
+                );
+
+                // 4. 计算切线方向（直线方向）
+                Vector3 tangentDir = new Vector3(Mathf.Sin(thetaEnd), 0, -Mathf.Cos(thetaEnd));
+                var temp_length = licheng - zhixian_quxian;
+                Vector3 point = endPos + tangentDir * temp_length;
+
+                //将弧度转为角度，
+                float degree = thetaEnd * Mathf.Rad2Deg;
+                var rota = new Vector3(0, 180 - degree, 0);
+
+                data.positon = point;
+                data.rotation = rota;
+            }
         }
         else
         {
@@ -561,7 +690,7 @@ public class Che_xian_qiao_lineData :BaseLineData
 
         return data;
     }
-
+    */
     //计算左直线的坐标点
     private List<Vector3> calculateLinePoint(float licheng)
     {
@@ -629,8 +758,6 @@ public class Che_xian_qiao_lineData :BaseLineData
             points.Add(tmep_c);
 
         }
-
-
         return points;
     }
 
@@ -646,7 +773,7 @@ public class Che_xian_qiao_lineData :BaseLineData
         };
 
         CreaterRoad.CreatRoad_new(ludi_point, "Guidao_luji", "初始段");
-
+        
         foreach (var item in linePath)
         {
             switch (item.Name)

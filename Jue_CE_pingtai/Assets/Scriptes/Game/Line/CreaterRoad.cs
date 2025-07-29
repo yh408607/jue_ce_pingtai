@@ -7,7 +7,6 @@ public class CreaterRoad
 {
     public static ERRoad road;
 
-
     /// <summary>
     /// 创建road
     /// </summary>
@@ -28,9 +27,7 @@ public class CreaterRoad
         road = roadNetwork.CreateRoad(name, roadType, controlPoints);
 
         return road.gameObject;
-
     }
-
 
     public static void CreatRoad_new(Vector3[] controlPoints, string roadName,string sideName,string sideLenght)
     {

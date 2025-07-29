@@ -16,7 +16,9 @@ public class CurveAndStraightPath : MonoBehaviour
 
     private void Start()
     {
-        GeneratePath();
+        //GeneratePath();
+        testCurveLine();
+
     }
 
     void GeneratePath()
@@ -84,5 +86,37 @@ public class CurveAndStraightPath : MonoBehaviour
                 Instantiate(pointPrefab, point, Quaternion.identity);
             }
         }
+    }
+
+    void testCurveLine()
+    {
+        Severlinedata_paragm _Paragm = new Severlinedata_paragm();
+        _Paragm.CR = 100;
+        _Paragm.CR_Len = 200;
+        _Paragm.CurveT = 0;
+        _Paragm.ST_LenL1 = 100;
+        _Paragm.HH_Len = 50;
+        _Paragm.ST_LenR = 500;
+
+        _Paragm.Len_Bri = new float[4]
+        {
+            32,32,32,32
+        };
+
+        _Paragm.XB1 = new float[0];
+        _Paragm.YB1 = new float[0];
+        _Paragm.ZB1 = new float[0];
+
+        Che_xian_qiao_lineData test = new Che_xian_qiao_lineData(_Paragm);
+        float l = Mathf.PI * _Paragm.CR / 2;
+        //var temp_list = test.calculateQuxianPath(l, new Vector3(0,0,100), 100);
+
+        //for (int i = 0; i < temp_list.Count; i++)
+        //{
+        //    GameObject obj = Instantiate(pointPrefab, temp_list[i], Quaternion.identity);
+        //    obj.name = i.ToString();
+
+        //}
+
     }
 }
