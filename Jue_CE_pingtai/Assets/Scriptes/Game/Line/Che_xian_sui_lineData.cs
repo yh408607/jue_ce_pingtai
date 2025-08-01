@@ -23,8 +23,8 @@ public class Che_xian_sui_lineData : BaseLineData
 
         //todo隧道的长度值需要模拟
         suidao_len = paragm.L_tunl;
-        //suidao_len = 300;
-
+        //suidao_len = 400;
+        zuozhixian_length = 100;
         //计算坐标点
         calculatePath();
     }
@@ -50,6 +50,7 @@ public class Che_xian_sui_lineData : BaseLineData
             var star_Pos = Vector3.zero;
             var end_pos = new Vector3(0, 0, zuozhixian_length);
             ludi_line ludi_1 = new ludi_line("ludi_1");
+            ludi_1.lineType = "Guidao_luji";
             ludi_1.path.Add(star_Pos);
             ludi_1.path.Add(end_pos);
             linePath.Add(ludi_1);
@@ -57,6 +58,7 @@ public class Che_xian_sui_lineData : BaseLineData
 
             //隧道部分
             suidao_line suidao = new suidao_line("suidao");
+            suidao.lineType = "Suidao";
             end_pos = new Vector3(0, 0, zuozhixian_length + suidao_len);
             suidao.path.Add(star_Pos);
             suidao.path.Add(end_pos);
@@ -76,7 +78,8 @@ public class Che_xian_sui_lineData : BaseLineData
             {
                 end_pos = new Vector3(0, 0, totulLenth + 300);
             }
-            ludi_line ludi_2 = new ludi_line("luji");
+            ludi_line ludi_2 = new ludi_line("luji_2");
+            ludi_2.lineType ="Guidao_luji";
             ludi_2.path.Add(star_Pos);
             ludi_2.path.Add(end_pos);
             linePath.Add(ludi_2);
@@ -89,31 +92,7 @@ public class Che_xian_sui_lineData : BaseLineData
         
     }
 
-    public override bujian_data CalculatePointAndRotation(float licheng)
-    {
-        bujian_data data = new bujian_data();
 
-
-        if (isquxian)
-        {
-            //曲线计算曲线路径
-            Debug.LogError("曲线还未计算");
-        }
-        else
-        {
-            //计算直线
-            var star_y = TrainController.Instance.Start_Hitgh;//初始高度
-
-            Vector3 pos = new Vector3(0, 0, licheng);
-            Vector3 rota = new Vector3(0, 0, 0);
-
-            data.positon = pos;
-            data.rotation = rota;
-
-        }
-
-        return data;
-    }
 
     public override void CreatorRoad()
     {
@@ -128,9 +107,9 @@ public class Che_xian_sui_lineData : BaseLineData
 
         foreach (var item in linePath)
         {
-            switch (item.Name)
+            switch (item.lineType)
             {
-                case "suidao":
+                case "Suidao":
                     var path = item.path.ToArray();
                     CreaterRoad.CreatRoad_new(path, "Suidao", item.Name);
 
@@ -138,17 +117,17 @@ public class Che_xian_sui_lineData : BaseLineData
                     creatorShan();
                     break;
 
-                case "ludi_1":
+                case "Guidao_luji":
                     path = item.path.ToArray();
                     CreaterRoad.CreatRoad_new(path, "Guidao_luji", item.Name);
                     break;
 
 
-                case "luji":
+                //case "luji":
 
-                    path = item.path.ToArray();
-                    CreaterRoad.CreatRoad_new(path, "Guidao_luji", item.Name);
-                    break;
+                //    path = item.path.ToArray();
+                //    CreaterRoad.CreatRoad_new(path, "Guidao_luji", item.Name);
+                //    break;
                 default:
                     break;
             }
@@ -186,14 +165,23 @@ public class Che_xian_sui_lineData : BaseLineData
         }
         else
         {
+
+            //var star_door_prefab = Loader.LoadPrefab("Prefab/Cave/start_door");
+            //GameObject star_door = GameObject.Instantiate(star_door_prefab);
+            //men = star_door.transform;
+            //Vector3 star_pos = _suidao.start_pos;
+            //star_door.transform.position = new Vector3(star_pos.x, star_pos.y, star_pos.z + 60);
+            //var hole = star_door.transform.Find("hole");
+
             //生成一个土体
-            var path = "Prefab/tuti/tuti";
+            var path = "Prefab/tuti/tuti_new";
             var pos = new Vector3(_suidao.start_pos.x, 4, _suidao.start_pos.z);
             var _tuti = Loader.InstantilGameObject(path, null, pos).transform;
 
 
             var temp = suidao_len / 100;
-            _tuti.transform.localScale = new Vector3(1, 1, temp);
+           _tuti.transform.localScale = new Vector3(1, 1, temp);
+           // TestRay();
         }
 
 

@@ -180,7 +180,7 @@ MonoBehaviour:
   - version: 2.0.0
     name: qiao_mian
     id: 1747193725.7747848
-    timestamp: 1751516808.3475852
+    timestamp: 1753864660.0602095
     objectType: 2
     gameobjectGUID: 
     textureGUID: 
@@ -230,7 +230,7 @@ MonoBehaviour:
     meshBoundsAlignment: 0
     xPosition: 0
     relativeTo: 0
-    yPosition: 0.1
+    yPosition: -0.1
     yRotation: 0
     oldSidwaysDistance: 0
     sidewaysDistanceUpdate: 0
@@ -312,7 +312,7 @@ MonoBehaviour:
   - version: 2.0.0
     name: CRH_L
     id: 1747194800.6150723
-    timestamp: 1747195010.0713422
+    timestamp: 1753865799.555858
     objectType: 2
     gameobjectGUID: 
     textureGUID: 
@@ -360,7 +360,7 @@ MonoBehaviour:
     childOrderActive: 0
     childOrder: 0
     meshBoundsAlignment: 0
-    xPosition: -2.5
+    xPosition: -3.8
     relativeTo: 0
     yPosition: 0.1
     yRotation: 0
@@ -371,15 +371,15 @@ MonoBehaviour:
     collider: 0
     boxcollider: 0
     tangents: 0
-    sourceObject: {fileID: 1643384368433304, guid: 86b1801fec9018549a1b42a6668c499c, type: 3}
+    sourceObject: {fileID: 8892836671603630964, guid: 3daab3fdda0cdc34b86a4ea7f4ddd9f6, type: 3}
     flipMesh: 0
     startObject: {fileID: 0}
     endObject: {fileID: 0}
     connectionObject: {fileID: 0}
     material: {fileID: 0}
     meshObjects: []
-    boxSize: {x: 3.103004, y: 0.49119556}
-    boxOffset: {x: 0, y: 0.1380871}
+    boxSize: {x: 3.103004, y: 0.39738393}
+    boxOffset: {x: 0, y: -0.72152233}
     includeStartSegment: 0
     startSegmentOffset: 0
     includeStartEdgeTris: 0
@@ -392,14 +392,14 @@ MonoBehaviour:
     endOffset: 0
     defaultStartOffset: 0
     defaultEndOffset: 0
-    totalZDistance: 7.452771
-    middleZDistance: 7.452771
+    totalZDistance: 7.6245446
+    middleZDistance: 7.624552
     startZDistance: -2000
     endZDistance: -2000
     minStartZ: 1000
     maxStartZ: -1000
     minMiddleZ: 0
-    maxMiddleZ: 7.452771
+    maxMiddleZ: 7.624552
     minEndZ: 1000
     maxEndZ: -1000
     smoothStart: 0
@@ -444,7 +444,7 @@ MonoBehaviour:
   - version: 2.0.0
     name: CRH_R
     id: 1747194943.7384868
-    timestamp: 1747194993.5994716
+    timestamp: 1753866153.642809
     objectType: 2
     gameobjectGUID: 
     textureGUID: 
@@ -492,7 +492,7 @@ MonoBehaviour:
     childOrderActive: 0
     childOrder: 0
     meshBoundsAlignment: 0
-    xPosition: 2.5
+    xPosition: 3.8
     relativeTo: 0
     yPosition: 0.1
     yRotation: 0
@@ -503,15 +503,15 @@ MonoBehaviour:
     collider: 0
     boxcollider: 0
     tangents: 0
-    sourceObject: {fileID: 1643384368433304, guid: 86b1801fec9018549a1b42a6668c499c, type: 3}
+    sourceObject: {fileID: 8892836671603630964, guid: 3daab3fdda0cdc34b86a4ea7f4ddd9f6, type: 3}
     flipMesh: 0
     startObject: {fileID: 0}
     endObject: {fileID: 0}
     connectionObject: {fileID: 0}
     material: {fileID: 0}
     meshObjects: []
-    boxSize: {x: 3.103004, y: 0.49119556}
-    boxOffset: {x: 0, y: 0.1380871}
+    boxSize: {x: 3.103004, y: 0.39738393}
+    boxOffset: {x: 0, y: -0.72152233}
     includeStartSegment: 0
     startSegmentOffset: 0
     includeStartEdgeTris: 0
@@ -524,14 +524,14 @@ MonoBehaviour:
     endOffset: 0
     defaultStartOffset: 0
     defaultEndOffset: 0
-    totalZDistance: 7.452771
-    middleZDistance: 7.452771
+    totalZDistance: 7.6245446
+    middleZDistance: 7.624552
     startZDistance: -2000
     endZDistance: -2000
     minStartZ: 1000
     maxStartZ: -1000
     minMiddleZ: 0
-    maxMiddleZ: 7.452771
+    maxMiddleZ: 7.624552
     minEndZ: 1000
     maxEndZ: -1000
     smoothStart: 0
@@ -708,11 +708,11 @@ MonoBehaviour:
   - version: 2.0.0
     name: Ludi
     id: 1747290161.3672705
-    timestamp: 1753761247.1670144
+    timestamp: 1753964401.0804052
     objectType: 0
     gameobjectGUID: 
     textureGUID: 
-    m_distance: 10
+    m_distance: 19
     uvx: 0.1
     uvy: 1
     position: 0
@@ -758,7 +758,7 @@ MonoBehaviour:
     meshBoundsAlignment: 0
     xPosition: 0
     relativeTo: 0
-    yPosition: -0.1
+    yPosition: -4.2
     yRotation: 0
     oldSidwaysDistance: 0
     sidewaysDistanceUpdate: 0
@@ -767,10 +767,10 @@ MonoBehaviour:
     collider: 0
     boxcollider: 0
     tangents: 0
-    sourceObject: {fileID: 1774983355810480, guid: f368422e8c0f7ed48bf25b97013d4629, type: 3}
+    sourceObject: {fileID: 2692039655260664455, guid: 4fdb2312a65990d4bae7c34748b50cc1, type: 3}
     flipMesh: 0
-    startObject: {fileID: 1774983355810480, guid: f368422e8c0f7ed48bf25b97013d4629, type: 3}
-    endObject: {fileID: 1774983355810480, guid: f368422e8c0f7ed48bf25b97013d4629, type: 3}
+    startObject: {fileID: 0}
+    endObject: {fileID: 0}
     connectionObject: {fileID: 0}
     material: {fileID: 0}
     meshObjects: []
@@ -972,7 +972,7 @@ MonoBehaviour:
   - version: 2.0.0
     name: Cave_HR
     id: 1751515830.3683124
-    timestamp: 1751524653.0756788
+    timestamp: 1753966354.7680876
     objectType: 2
     gameobjectGUID: 
     textureGUID: 
@@ -1036,11 +1036,11 @@ MonoBehaviour:
     flipMesh: 0
     startObject: {fileID: 8496663376647438319, guid: ed86033f370d51f4b9d649ebd1b5b189, type: 3}
     endObject: {fileID: 9100229893672052494, guid: 536cee90bd9482e4281d6302122c3398, type: 3}
-    connectionObject: {fileID: 5539096169058613065, guid: ea80388595ab07743938f4a5b0812369, type: 3}
+    connectionObject: {fileID: 0}
     material: {fileID: 0}
     meshObjects: []
-    boxSize: {x: 17.414272, y: 12.93053}
-    boxOffset: {x: 0, y: 6.69871}
+    boxSize: {x: 24.607698, y: 18.271826}
+    boxOffset: {x: 0, y: 0}
     includeStartSegment: 0
     startSegmentOffset: 0
     includeStartEdgeTris: 0
@@ -1053,14 +1053,14 @@ MonoBehaviour:
     endOffset: 0
     defaultStartOffset: 10
     defaultEndOffset: -10
-    totalZDistance: 31.577389
-    middleZDistance: 31.577389
+    totalZDistance: 44.62127
+    middleZDistance: 44.62127
     startZDistance: -2000
     endZDistance: -2000
     minStartZ: 1000
     maxStartZ: -1000
     minMiddleZ: 0
-    maxMiddleZ: 31.577389
+    maxMiddleZ: 44.62127
     minEndZ: 1000
     maxEndZ: -1000
     smoothStart: 0
@@ -1502,7 +1502,7 @@ MonoBehaviour:
   - version: 2.0.0
     name: DunGou_Suidao
     id: 1752660462.9934318
-    timestamp: 1752661212.150809
+    timestamp: 1753966718.2618032
     objectType: 2
     gameobjectGUID: 
     textureGUID: 
@@ -1552,7 +1552,7 @@ MonoBehaviour:
     meshBoundsAlignment: 0
     xPosition: 0
     relativeTo: 0
-    yPosition: -1.4
+    yPosition: -4
     yRotation: 0
     oldSidwaysDistance: 0
     sidewaysDistanceUpdate: 0
@@ -1568,8 +1568,8 @@ MonoBehaviour:
     connectionObject: {fileID: 0}
     material: {fileID: 0}
     meshObjects: []
-    boxSize: {x: 17.415802, y: 17.4158}
-    boxOffset: {x: 3.2021484, y: 468.81656}
+    boxSize: {x: 35.96077, y: 35.960777}
+    boxOffset: {x: 0.07187462, y: -0.45131302}
     includeStartSegment: 0
     startSegmentOffset: 0
     includeStartEdgeTris: 0
@@ -1582,14 +1582,14 @@ MonoBehaviour:
     endOffset: 0
     defaultStartOffset: 0
     defaultEndOffset: 0
-    totalZDistance: 31.57739
-    middleZDistance: 31.577389
+    totalZDistance: 50.000122
+    middleZDistance: 50.000122
     startZDistance: -2000
     endZDistance: -2000
     minStartZ: 1000
     maxStartZ: -1000
     minMiddleZ: 0
-    maxMiddleZ: 31.577389
+    maxMiddleZ: 50.000122
     minEndZ: 1000
     maxEndZ: -1000
     smoothStart: 0
@@ -1631,12 +1631,144 @@ MonoBehaviour:
     scale: {x: 1, y: 1, z: 1}
     indentExt: 0
     category: 6
+  - version: 2.0.0
+    name: luji_S
+    id: 1753775761.7752235
+    timestamp: 1753775967.155982
+    objectType: 0
+    gameobjectGUID: 
+    textureGUID: 
+    m_distance: 10
+    uvx: 0.1
+    uvy: 1
+    position: 0
+    splinePosition: 0
+    selectedRotation: 0
+    randomYAxisMinRotation: 0
+    randomYAxisMaxRotation: 0
+    nodeList: []
+    uvs: []
+    uvDistances: []
+    clampUVs: 1
+    clampUVY: 1
+    clampUVYValue: 1
+    terrainUVs: 0
+    reverseUVs: 0
+    totalDistance: 0
+    snapList: 
+    snapWeightList: []
+    colorList: []
+    gameobjectStartGUID: 
+    gameobjectEndGUID: 
+    align: 1
+    alignPoint: 0
+    weld: 1
+    combine: 1
+    combineInstantiated: 1
+    markerActive: 1
+    uvType: 0
+    uv: 1
+    randomObjects: 0
+    forwardStartOffset: 0
+    sidewaysOffset: 0
+    density: 0
+    goPath: 
+    startPath: 
+    endPath: 
+    texturePath: 
+    terrainTree: 0
+    minScale: 1
+    maxScale: 1
+    childOrderActive: 0
+    childOrder: 0
+    meshBoundsAlignment: 0
+    xPosition: 0
+    relativeTo: 0
+    yPosition: 0
+    yRotation: 0
+    oldSidwaysDistance: 0
+    sidewaysDistanceUpdate: 0
+    uvYRound: 0
+    adjustUV: 1
+    collider: 0
+    boxcollider: 0
+    tangents: 0
+    sourceObject: {fileID: 2692039655260664455, guid: 4fdb2312a65990d4bae7c34748b50cc1, type: 3}
+    flipMesh: 0
+    startObject: {fileID: 0}
+    endObject: {fileID: 0}
+    connectionObject: {fileID: 0}
+    material: {fileID: 0}
+    meshObjects: []
+    boxSize: {x: 0, y: 0}
+    boxOffset: {x: 0, y: 0}
+    includeStartSegment: 0
+    startSegmentOffset: 0
+    includeStartEdgeTris: 0
+    includeEndSegment: 0
+    endSegmentOffset: 0
+    includeEndEdgeTris: 0
+    adjustToRoadWidth: 0
+    xOffset: 0
+    startOffset: 0
+    endOffset: 0
+    defaultStartOffset: 0
+    defaultEndOffset: 0
+    totalZDistance: 0
+    middleZDistance: 0
+    startZDistance: 0
+    endZDistance: 0
+    minStartZ: 10000
+    maxStartZ: -10000
+    minMiddleZ: 10000
+    maxMiddleZ: -10000
+    minEndZ: 10000
+    maxEndZ: -10000
+    smoothStart: 0
+    smoothMiddle: 0
+    smoothEnd: 0
+    targetObject: {fileID: 0}
+    bridgeObject: 0
+    snapToTerrain: 0
+    layer: 0
+    deformationObject: 0
+    isStatic: 1
+    castShadows: 1
+    scaleToRoad: 0
+    splitInBatches: 0
+    randomRotation: {x: 0, y: 0, z: 0}
+    randomMinRotation: 0
+    randomMaxRotation: 0
+    minRandomRotationDistance: 0
+    maxRandomRotationDistance: 0
+    randomXPosition: 0
+    randomMinXPosition: 0
+    randomMaxXPosition: 0
+    minRandomXPositionDistance: 0
+    maxRandomXPositionDistance: 0
+    boxColliderScale: {x: 1, y: 1, z: 1}
+    randomYPosition: 0
+    randomMinYPosition: 0
+    randomMaxYPosition: 0
+    minRandomYPositionDistance: 0
+    maxRandomYPositionDistance: 0
+    bridgeHeight: 5
+    markerSplineController: 2
+    bridgeLength: 20
+    deformationOffset: 0
+    markerIndent: 0
+    markerSurrounding: 0
+    indentController: 0
+    excludeTerrainSplats: 0
+    scale: {x: 1, y: 1, z: 1}
+    indentExt: 0
+    category: 6
   ints: 
   roadPresets:
   - roadTypeName: Guidao_ludi
     id: 1
-    timestamp: 1752661582.0393052
-    roadWidth: 3.5
+    timestamp: 1753952143.6726716
+    roadWidth: 6
     faceDistance: 2
     angleTreshold: 45
     uvTiling: 1
@@ -1739,7 +1871,7 @@ MonoBehaviour:
     decalClassPresets: []
   - roadTypeName: Guidao_qiao
     id: 1747192673.2163146
-    timestamp: 1749195417.3355057
+    timestamp: 1753864534.4172952
     roadWidth: 12
     faceDistance: 2
     angleTreshold: 45
@@ -1793,7 +1925,7 @@ MonoBehaviour:
     sidewalks: 0
     sidewalkHeight: 0.2
     sidewalkWidth: 2
-    roadMaterial: {fileID: 2100000, guid: e765f575e6a63a84c927f21abaaef37b, type: 2}
+    roadMaterial: {fileID: 2100000, guid: 359bd975f550b6149911db2a7bd7198d, type: 2}
     roadMaterials: []
     roadPhysicsMaterial: {fileID: 0}
     roadPhysicsMaterials: []
@@ -1804,10 +1936,16 @@ MonoBehaviour:
     soData: []
     soDataExt: []
     soDataLog:
+    - id: 1751515830.3683124
+      active: 0
     - id: 1747194800.6150723
       active: 1
     - id: 1747194943.7384868
       active: 1
+    - id: 1752634771.2264915
+      active: 0
+    - id: 1752660462.9934318
+      active: 0
     - id: 1747290161.3672705
       active: 0
     - id: 1747206165.98668
@@ -1845,7 +1983,7 @@ MonoBehaviour:
     decalClassPresets: []
   - roadTypeName: Guidao_luji
     id: 1747192674.250778
-    timestamp: 1750162169.523067
+    timestamp: 1753957972.2089372
     roadWidth: 6
     faceDistance: 2
     angleTreshold: 45
@@ -1899,7 +2037,7 @@ MonoBehaviour:
     sidewalks: 0
     sidewalkHeight: 0.2
     sidewalkWidth: 2
-    roadMaterial: {fileID: 2100000, guid: e765f575e6a63a84c927f21abaaef37b, type: 2}
+    roadMaterial: {fileID: 2100000, guid: 359bd975f550b6149911db2a7bd7198d, type: 2}
     roadMaterials: []
     roadPhysicsMaterial: {fileID: 0}
     roadPhysicsMaterials: []
@@ -1910,18 +2048,24 @@ MonoBehaviour:
     soData: []
     soDataExt: []
     soDataLog:
+    - id: 1751515830.3683124
+      active: 0
     - id: 1747194800.6150723
       active: 1
     - id: 1747194943.7384868
       active: 1
+    - id: 1752634771.2264915
+      active: 0
+    - id: 1752660462.9934318
+      active: 0
     - id: 1747290161.3672705
       active: 1
     - id: 1747206165.98668
-      active: 1
+      active: 0
     - id: 1747193328.7112663
       active: 0
     - id: 1747193725.7747848
-      active: 1
+      active: 0
     layer: 0
     isStatic: 1
     tag: 
@@ -1936,12 +2080,12 @@ MonoBehaviour:
     randomYPosition: 0
     randomMinYPosition: -0.02
     randomMaxYPosition: 0.02
-    minRandomYPositionDistance: 15
-    maxRandomYPositionDistance: 35
-    randomMinRotation: -1
-    randomMaxRotation: 1
-    minRandomRotationDistance: 15
-    maxRandomRotationDistance: 30
+    minRandomYPositionDistance: 0
+    maxRandomYPositionDistance: 0
+    randomMinRotation: 0
+    randomMaxRotation: 0
+    minRandomRotationDistance: 0
+    maxRandomRotationDistance: 0
     vegetationStudioGrassPerimeter: 2
     vegetationStudioPlantPerimeter: 3
     vegetationStudioTreePerimeter: 4
@@ -2189,7 +2333,7 @@ MonoBehaviour:
       distances: []
   - roadTypeName: Suidao
     id: 1747291296.4484363
-    timestamp: 1751523922.7401493
+    timestamp: 1753954595.6166096
     roadWidth: 6
     faceDistance: 2
     angleTreshold: 45
@@ -2260,6 +2404,10 @@ MonoBehaviour:
       active: 1
     - id: 1747194943.7384868
       active: 1
+    - id: 1752634771.2264915
+      active: 0
+    - id: 1752660462.9934318
+      active: 0
     - id: 1747290161.3672705
       active: 0
     - id: 1747206165.98668
@@ -2321,7 +2469,7 @@ MonoBehaviour:
       distances: []
   - roadTypeName: DunGou_Suidao
     id: 1752635184.2991338
-    timestamp: 1752661637.7104642
+    timestamp: 1753966796.5681531
     roadWidth: 3.6
     faceDistance: 2
     angleTreshold: 45
@@ -2375,7 +2523,7 @@ MonoBehaviour:
     sidewalks: 0
     sidewalkHeight: 0.2
     sidewalkWidth: 2
-    roadMaterial: {fileID: 2100000, guid: e765f575e6a63a84c927f21abaaef37b, type: 2}
+    roadMaterial: {fileID: 2100000, guid: 359bd975f550b6149911db2a7bd7198d, type: 2}
     roadMaterials: []
     roadPhysicsMaterial: {fileID: 0}
     roadPhysicsMaterials: []

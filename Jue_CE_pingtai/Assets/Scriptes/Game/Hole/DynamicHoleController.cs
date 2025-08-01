@@ -40,25 +40,25 @@ public class DynamicHoleController : MonoBehaviour
 
     void Update()
     {
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //    RaycastHit hit;
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
-        //    if (Physics.Raycast(ray, out hit))
-        //    {
-        //        if (hit.collider.gameObject.name == "shan_child")
-        //        {
-        //            AddHoleAtHitPoint(hit);
-        //        }
-        //    }
-        //}
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.gameObject.name == "shan_child")
+                {
+                    AddHoleAtHitPoint(hit);
+                }
+            }
+        }
     }
 
     public void AddHoleAtHitPoint(RaycastHit hit)
     {
         material.SetVector("_HoleData",new Vector4(hit.textureCoord.x, hit.textureCoord.y, holeSize, 0));
-        //Debug.Log("开始挖了没");
+        Debug.Log("开始挖了没");
     }
 
     //void UpdateShaderHoles()

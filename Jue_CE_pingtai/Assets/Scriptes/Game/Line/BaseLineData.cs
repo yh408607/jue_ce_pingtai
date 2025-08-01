@@ -53,14 +53,17 @@ public abstract class BaseLineData
     /// <param name="data"></param>
     public abstract void calculatePath(string data);
 
+    /// <summary>
+    /// 计算路基点和旋转角度
+    /// </summary>
+    /// <param name="licheng"></param>
+    /// <returns></returns>
     public virtual bujian_data CalculatePointAndRotation(float licheng)
     {
         bujian_data data = new bujian_data();
 
         if (isquxian)
         {
-
-
             return CalculatePointAndRotation_Quxian(licheng);
         }
         else
@@ -153,13 +156,15 @@ public abstract class BaseLineData
         //Debug.LogError("曲线还未计算");
         var zhixian_quxian = zuozhixian_length + huanqu_length * 2 + yuan_length;
         var star_y = TrainController.Instance.Start_Hitgh;//初始高度
-
+        var  x_offset = TrainController.Instance.Start_x_offset;
+        var new_center = new Vector3(center.x, star_y, center.z);
+        var new_R = yuan_R - x_offset;
         if (licheng <= zuozhixian_length)
         {
             //计算直线
             //var star_y = TrainController.Instance.Start_Hitgh;//初始高度
 
-            Vector3 pos = new Vector3(0, 0, licheng);
+            Vector3 pos = new Vector3(x_offset, star_y, licheng);
             Vector3 rota = new Vector3(0, 0, 0);
 
             data.positon = pos;
@@ -170,15 +175,16 @@ public abstract class BaseLineData
             //里程在曲线内
             //var temp = zhixian_quxian - zuozhixian_length;
             var temp = licheng - zuozhixian_length;
-            var start_pos = new Vector3(0, 0, zuozhixian_length);
+            //var start_pos = new Vector3(0, 0, zuozhixian_length);
+            var start_pos = new Vector3(0, star_y, zuozhixian_length);
 
-            float thetaStart = Mathf.Atan2(start_pos.z - center.z, start_pos.x - center.x);
-            float theta = temp / yuan_R;
+            float thetaStart = Mathf.Atan2(start_pos.z - new_center.z, start_pos.x - new_center.x);
+            float theta = temp / new_R;
             float thetaEnd = thetaStart - theta;//顺时针选择
 
             Vector3 pos = new Vector3(
-                        center.x + yuan_R * Mathf.Cos(thetaEnd), 0,
-                        center.z + yuan_R * Mathf.Sin(thetaEnd)
+                        center.x + new_R * Mathf.Cos(thetaEnd), star_y,
+                        center.z + new_R * Mathf.Sin(thetaEnd)
             );
 
             // 4. 计算切线方向（直线方向）
@@ -192,18 +198,18 @@ public abstract class BaseLineData
         else
         {
             //里程在曲线外，进入到右直线了
-            var start_pos = new Vector3(0, star_y, zuozhixian_length);
-            float thetaStart = Mathf.Atan2(start_pos.z - center.z, start_pos.x - center.x);
-            float theta = (huanqu_length * 2 + yuan_length) / yuan_R;
+            var start_pos = new Vector3(x_offset, star_y, zuozhixian_length);
+            float thetaStart = Mathf.Atan2(start_pos.z - new_center.z, start_pos.x - new_center.x);
+            float theta = (huanqu_length * 2 + yuan_length) / new_R;
             float thetaEnd = thetaStart - theta;//顺时针选择
 
             Vector3 endPos = new Vector3(
-                        center.x + yuan_R * Mathf.Cos(thetaEnd), 0,
-                        center.z + yuan_R * Mathf.Sin(thetaEnd)
+                        center.x + new_R * Mathf.Cos(thetaEnd), star_y,
+                        center.z + new_R * Mathf.Sin(thetaEnd)
             );
 
             // 4. 计算切线方向（直线方向）
-            Vector3 tangentDir = new Vector3(Mathf.Sin(thetaEnd), 0, -Mathf.Cos(thetaEnd));
+            Vector3 tangentDir = new Vector3(Mathf.Sin(thetaEnd), star_y, -Mathf.Cos(thetaEnd));
             var temp_length = licheng - zhixian_quxian;
             Vector3 point = endPos + tangentDir * temp_length;
 
@@ -227,8 +233,8 @@ public abstract class BaseLineData
 
         //计算直线
         var star_y = TrainController.Instance.Start_Hitgh;//初始高度
-
-        Vector3 pos = new Vector3(0, 0, licheng);
+        var x_offset = TrainController.Instance.Start_x_offset;
+        Vector3 pos = new Vector3(x_offset, star_y, licheng);
         Vector3 rota = new Vector3(0, 0, 0);
 
         data.positon = pos;
@@ -244,6 +250,7 @@ public abstract class BaseLineData
 /// </summary>
 public class Baseline
 {
+    public string lineType; //线路类型
     public string Name;
     public int ID;
     public List<Vector3> path = new List<Vector3>();
