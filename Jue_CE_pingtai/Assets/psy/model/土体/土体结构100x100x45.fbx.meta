@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5870f5c17130f8c43aeac0a4970ca0bd
+guid: 1bb64635a6360c544883fb7c75ffe70a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,23 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: tukiuai1
-    second: {fileID: 2100000, guid: 608374439f9aff34da0ee7f27d2cf670, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tukuai2
-    second: {fileID: 2100000, guid: 446b7b5e7467c104694084501235f9b4, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tukuai3
+      name: 13 - Default
     second: {fileID: 2100000, guid: ce2b278c98777834095235ffdbcbcfb0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tukuai4
-    second: {fileID: 2100000, guid: 6d6eb081f110a164a99ca660362ed9f1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
