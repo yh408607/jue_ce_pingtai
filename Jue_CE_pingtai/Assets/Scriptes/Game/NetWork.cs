@@ -25,7 +25,7 @@ public class NetWork :NoramlInstanceExample<NetWork>
 
     //private long resultId = 74;
     //private long resultId = 90;
-    private long resultId = 103;
+    private long resultId = 90;
 
     /// <summary>
     /// 用户是选择查看位移响应还是加速度响应，对应的结果

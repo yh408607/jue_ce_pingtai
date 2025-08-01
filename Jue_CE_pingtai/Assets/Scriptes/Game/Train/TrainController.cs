@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TrainController : MonoBehaviourInstanceExample<TrainController>
 {
-
     public float Start_Hitgh
     {
         get
@@ -29,9 +28,26 @@ public class TrainController : MonoBehaviourInstanceExample<TrainController>
             return hitgh;
         }
     }
+    public float Start_x_offset
+    {
+        get
+        {
+            float x_offset = 0;
+            switch (GameManager.Instance.Substructural_Type)
+            {
+                case "che_xian_sui_tui":
+                    x_offset = -3.8f;
+                    break;
+                default:
+                    x_offset = 3.8f;
+                    break;
+            }
+            return x_offset;
+        }
+    }   //列车生成时候X的偏移量
 
-    private float hitgh_CRH = 2.51f;//初始高度
-    private float hitgh_CR = 2.51f;//初始高度
+    private float hitgh_CRH = 2.4f;//初始高度
+    private float hitgh_CR = 2.4f;//初始高度
     private float hitgh_Putong=3.3f;//初始高度
 
     private float chetou_chexiang_length_CR = -28.15f;//与车头连接车厢长度
@@ -142,17 +158,17 @@ public class TrainController : MonoBehaviourInstanceExample<TrainController>
                 break;
         }
 
-        var temp_start_x = 2.5f;
-        switch (GameManager.Instance.Substructural_Type)
-        {
-            case "che_xian_sui_tui":
-                //star_point = new Vector3(0, hight, 0);
-                temp_start_x = -2.5f;
-                break;
-            default:
-                break;
-        }
-        Vector3 star_point = new Vector3(temp_start_x, hight, 0);
+        //var temp_start_x = 3.8f;
+        //switch (GameManager.Instance.Substructural_Type)
+        //{
+        //    case "che_xian_sui_tui":
+        //        //star_point = new Vector3(0, hight, 0);
+        //        temp_start_x = -3.8f;
+        //        break;
+        //    default:
+        //        break;
+        //}
+        Vector3 star_point = new Vector3(Start_x_offset, hight, 0);
 
         var prefab_chetou = Loader.LoadPrefab(path + "chetou");
         var chetou = Instantiate(prefab_chetou, star_point, Quaternion.identity, this.transform);
@@ -171,7 +187,7 @@ public class TrainController : MonoBehaviourInstanceExample<TrainController>
             
             if (i == 0)
             {
-                star_point = new Vector3(temp_start_x, hight, chetou_chengxiang_length);
+                star_point = new Vector3(Start_x_offset, hight, chetou_chengxiang_length);
             }
             else
             {
@@ -238,11 +254,20 @@ public class TrainController : MonoBehaviourInstanceExample<TrainController>
         bujian_data _che = lineData.CalculatePointAndRotation(lc);
 
         //计算路径
-        this.transform.position = _che.positon;
+        //this.transform.position = _che.positon;
 
-        //TODO 计算旋转角度这里需要将每个车厢的旋转角度进行计算，由于是直线先不做考虑
+        //TODO 计算旋转角度这里需要将每个车厢的旋转角度进行计算
+        //this.transform.rotation = Quaternion.Euler(_che.rotation);
+        //这里需要将每个车厢的旋转角度进行计算
+        for (int i = 0; i < chengxiang_list.Count; i++)
+        {
+            //这里有不同的列车类型区别，目前只考虑了CRH和CR
+            var temp_lc = lc + i * step_lenth_CHR;
+            var data = lineData.CalculatePointAndRotation(temp_lc);
+            chengxiang_list[i].transform.position = data.positon;
+            chengxiang_list[i].transform.rotation = Quaternion.Euler(data.rotation);
+        }
 
-        this.transform.rotation = Quaternion.Euler(_che.rotation);
 
         //应用车厢数据
         if (chengxiang_list.Count != lichengDta.chexiangdata_list.Count)

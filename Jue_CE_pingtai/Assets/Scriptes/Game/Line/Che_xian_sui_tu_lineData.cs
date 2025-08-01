@@ -39,36 +39,7 @@ public class Che_xian_sui_tu_lineData : BaseLineData
 
     }
 
-    /// <summary>
-    /// 根据里程计算当前的坐标点与朝向
-    /// </summary>
-    /// <param name="licheng"></param>
-    /// <returns></returns>
-    public override bujian_data CalculatePointAndRotation(float licheng)
-    {
-        bujian_data data = new bujian_data();
 
-        if (isquxian)
-        {
-            //曲线计算曲线路径
-            Debug.LogError("曲线还未计算");
-        }
-        else
-        {
-            //计算直线
-            var star_y = TrainController.Instance.Start_Hitgh;//初始高度
-
-            Vector3 pos = new Vector3(0, 0, licheng);
-            Vector3 rota = new Vector3(0, 0, 0);
-
-            data.positon = pos;
-            data.rotation = rota;
-
-        }
-
-        return data;
-
-    }
 
     public override void CreatorRoad()
     {

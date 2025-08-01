@@ -22,9 +22,23 @@ public class CreaterRoad
             Debug.LogErrorFormat("获取的RoadName不存在，请检查，名字为{0}", roadName);
             return null;
         }
-        
+
         // 2. 创建道路对象
-        road = roadNetwork.CreateRoad(name, roadType, controlPoints);
+        if (controlPoints.Length < 2)
+        {
+            Debug.LogErrorFormat("path数量太小小于2个，现在的数量为{0}个", controlPoints.Length);
+        }
+            
+        
+        try
+        {
+            road = roadNetwork.CreateRoad(name, roadType, controlPoints);
+        }
+        catch (System.Exception)
+        {
+            Debug.LogErrorFormat("创建道路失败，请检查参数是否正确，当前道路名字为{0},道路类型为{1},path的数量为{2}", name, roadType.ToString(), controlPoints[1]);
+            throw;
+        }
 
         return road.gameObject;
     }

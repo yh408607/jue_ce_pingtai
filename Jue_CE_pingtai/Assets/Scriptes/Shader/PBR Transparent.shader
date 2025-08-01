@@ -118,7 +118,7 @@ Shader "Custom/PBR Transparent"
 
         ENDCG
     }
-    FallBack "Transparent"
-   CustomEditor "UnityEditor.ShaderGUI"
+   //  FallBack "Transparent"
+   // CustomEditor "UnityEditor.ShaderGUI"
   // CustomEditor "PBRTransparentShaderGUI"
 }
