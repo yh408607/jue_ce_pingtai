@@ -18,7 +18,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: crh3_wk03
-    second: {fileID: 2100000, guid: c53b9d10a266d3d45938c78810fe1dcc, type: 2}
+    second: {fileID: 2100000, guid: e165d09b67878fb4482ea76936534006, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
