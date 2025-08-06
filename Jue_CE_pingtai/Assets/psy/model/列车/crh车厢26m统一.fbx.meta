@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f54757ec9b9c4c94694eef7e91e42e8f
+guid: e1dc110752040c94f9c2e50376e5db27
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -18,7 +18,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: crh3_wk03
-    second: {fileID: 2100000, guid: e165d09b67878fb4482ea76936534006, type: 2}
+    second: {fileID: 2100000, guid: c53b9d10a266d3d45938c78810fe1dcc, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
