@@ -24,7 +24,7 @@ public class Che_xian_sui_lineData : BaseLineData
         //todo隧道的长度值需要模拟
         suidao_len = paragm.L_tunl;
         //suidao_len = 400;
-        zuozhixian_length = 100;
+        //zuozhixian_length = 100;
         //计算坐标点
         calculatePath();
     }
@@ -175,23 +175,25 @@ public class Che_xian_sui_lineData : BaseLineData
 
             //生成一个土体
             var path = "Prefab/tuti/tuti_new";
-            var pos = new Vector3(_suidao.start_pos.x, 4, _suidao.start_pos.z);
+            // var pos = new Vector3(_suidao.start_pos.x, 4, _suidao.start_pos.z);
+            var pos = getYuanquxianCentPos(suidao_len);
             var _tuti = Loader.InstantilGameObject(path, null, pos).transform;
 
 
             var temp = suidao_len / 100;
            _tuti.transform.localScale = new Vector3(1, 1, temp);
-           // TestRay();
+           //TestRay();
+           _tuti.GetComponent<DynamicHoleController>().Createrhole();
         }
-
-
-
-
     }
 
 
     public void TestRay()
     {
+        if(men==null)
+        {
+            var men = new GameObject("men").transform;
+        }
         var hole = men.transform.Find("hole");
         GameManager.Instance.StartCoroutine(Creatorhole(hole));
     }

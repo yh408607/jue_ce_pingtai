@@ -99,8 +99,12 @@ public class CheXiang : MonoBehaviour
 
             //放大rotation
             //var temp = localrota + _data.rotation;
-            var temp = localrota + _data.rotation * GameManager.Instance.fangdaxishu.rota_xishu;
+            //z轴旋转都反了所以需要取反
+            var temp_z = new Vector3(_data.rotation.x, _data.rotation.y, -_data.rotation.z);
+            //var temp = localrota + _data.rotation * GameManager.Instance.fangdaxishu.rota_xishu;
+            var temp = localrota + temp_z * GameManager.Instance.fangdaxishu.rota_xishu;
             child.localRotation = Quaternion.Euler(temp);
+            //
         }
         else if(GameManager.Instance.data_type.Contains("加速度"))
         {

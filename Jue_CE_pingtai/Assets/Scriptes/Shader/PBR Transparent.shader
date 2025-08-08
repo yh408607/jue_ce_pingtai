@@ -7,6 +7,7 @@ Shader "Custom/PBR Transparent"
         _MetallicGlossMap("Metallic (R) Smoothness (A)", 2D) = "white" {}
         _Metallic("Metallic", Range(0,1)) = 0.0
         _Glossiness("Smoothness", Range(0,1)) = 0.5
+
         _BumpMap("Normal Map", 2D) = "bump" {}
         _BumpScale("Normal Scale", Float) = 1.0
         _OcclusionMap("Occlusion", 2D) = "white" {}

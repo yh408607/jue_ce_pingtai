@@ -4977,12 +4977,144 @@ MonoBehaviour:
     scale: {x: 1, y: 1, z: 1}
     indentExt: 0
     category: 1
+  - version: 2.0.0
+    name: CRH_M
+    id: 1754276799.180541
+    timestamp: 1754276867.0716262
+    objectType: 2
+    gameobjectGUID: 
+    textureGUID: 
+    m_distance: 10
+    uvx: 0.1
+    uvy: 1
+    position: 0
+    splinePosition: 0
+    selectedRotation: 0
+    randomYAxisMinRotation: 0
+    randomYAxisMaxRotation: 0
+    nodeList: []
+    uvs: []
+    uvDistances: []
+    clampUVs: 1
+    clampUVY: 1
+    clampUVYValue: 1
+    terrainUVs: 0
+    reverseUVs: 0
+    totalDistance: 0
+    snapList: 
+    snapWeightList: []
+    colorList: []
+    gameobjectStartGUID: 
+    gameobjectEndGUID: 
+    align: 1
+    alignPoint: 0
+    weld: 1
+    combine: 1
+    combineInstantiated: 1
+    markerActive: 1
+    uvType: 0
+    uv: 1
+    randomObjects: 0
+    forwardStartOffset: 0
+    sidewaysOffset: 0
+    density: 0
+    goPath: 
+    startPath: 
+    endPath: 
+    texturePath: 
+    terrainTree: 0
+    minScale: 1
+    maxScale: 1
+    childOrderActive: 0
+    childOrder: 0
+    meshBoundsAlignment: 0
+    xPosition: 0
+    relativeTo: 0
+    yPosition: 0.1
+    yRotation: 0
+    oldSidwaysDistance: 0
+    sidewaysDistanceUpdate: 0
+    uvYRound: 0
+    adjustUV: 1
+    collider: 0
+    boxcollider: 0
+    tangents: 0
+    sourceObject: {fileID: 8892836671603630964, guid: 3daab3fdda0cdc34b86a4ea7f4ddd9f6, type: 3}
+    flipMesh: 0
+    startObject: {fileID: 0}
+    endObject: {fileID: 0}
+    connectionObject: {fileID: 0}
+    material: {fileID: 0}
+    meshObjects: []
+    boxSize: {x: 3.103004, y: 0.39738393}
+    boxOffset: {x: 0, y: -0.72152233}
+    includeStartSegment: 0
+    startSegmentOffset: 0
+    includeStartEdgeTris: 0
+    includeEndSegment: 0
+    endSegmentOffset: 0
+    includeEndEdgeTris: 0
+    adjustToRoadWidth: 0
+    xOffset: 0
+    startOffset: 0
+    endOffset: 0
+    defaultStartOffset: 0
+    defaultEndOffset: 0
+    totalZDistance: 7.6245446
+    middleZDistance: 7.624552
+    startZDistance: -2000
+    endZDistance: -2000
+    minStartZ: 1000
+    maxStartZ: -1000
+    minMiddleZ: 0
+    maxMiddleZ: 7.624552
+    minEndZ: 1000
+    maxEndZ: -1000
+    smoothStart: 0
+    smoothMiddle: 0
+    smoothEnd: 0
+    targetObject: {fileID: 0}
+    bridgeObject: 0
+    snapToTerrain: 0
+    layer: 0
+    deformationObject: 0
+    isStatic: 1
+    castShadows: 1
+    scaleToRoad: 0
+    splitInBatches: 0
+    randomRotation: {x: 0, y: 0, z: 0}
+    randomMinRotation: 0
+    randomMaxRotation: 0
+    minRandomRotationDistance: 0
+    maxRandomRotationDistance: 0
+    randomXPosition: 0
+    randomMinXPosition: 0
+    randomMaxXPosition: 0
+    minRandomXPositionDistance: 0
+    maxRandomXPositionDistance: 0
+    boxColliderScale: {x: 1, y: 1, z: 1}
+    randomYPosition: 0
+    randomMinYPosition: 0
+    randomMaxYPosition: 0
+    minRandomYPositionDistance: 0
+    maxRandomYPositionDistance: 0
+    bridgeHeight: 5
+    markerSplineController: 2
+    bridgeLength: 20
+    deformationOffset: 0
+    markerIndent: 0
+    markerSurrounding: 0
+    indentController: 0
+    excludeTerrainSplats: 0
+    scale: {x: 1, y: 1, z: 1}
+    indentExt: 0
+    category: 6
   ints: 
   roadPresets:
   - roadTypeName: Guidao_ludi
     id: 1
-    timestamp: 1753952143.6726716
-    roadWidth: 6
+    timestamp: 1754276921.0337627
+    roadWidth: 4
     faceDistance: 2
     angleTreshold: 45
     uvTiling: 1
@@ -5027,7 +5159,7 @@ MonoBehaviour:
     sidewalks: 0
     sidewalkHeight: 0.2
     sidewalkWidth: 2
-    roadMaterial: {fileID: 2100000, guid: e765f575e6a63a84c927f21abaaef37b, type: 2}
+    roadMaterial: {fileID: 2100000, guid: 359bd975f550b6149911db2a7bd7198d, type: 2}
     roadMaterials: []
     roadPhysicsMaterial: {fileID: 0}
     roadPhysicsMaterials: []
@@ -5041,9 +5173,11 @@ MonoBehaviour:
     - id: 1751515830.3683124
       active: 0
     - id: 1747194800.6150723
+      active: 0
+    - id: 1754276799.180541
       active: 1
     - id: 1747194943.7384868
-      active: 1
+      active: 0
     - id: 1752634771.2264915
       active: 0
     - id: 1752660462.9934318
@@ -5085,7 +5219,7 @@ MonoBehaviour:
     decalClassPresets: []
   - roadTypeName: Guidao_qiao
     id: 1747192673.2163146
-    timestamp: 1753864534.4172952
+    timestamp: 1754550075.632845
     roadWidth: 12
     faceDistance: 2
     angleTreshold: 45
@@ -5154,6 +5288,8 @@ MonoBehaviour:
       active: 0
     - id: 1747194800.6150723
       active: 1
+    - id: 1754276799.180541
+      active: 0
     - id: 1747194943.7384868
       active: 1
     - id: 1752634771.2264915
@@ -5163,7 +5299,7 @@ MonoBehaviour:
     - id: 1747290161.3672705
       active: 0
     - id: 1747206165.98668
-      active: 1
+      active: 0
     - id: 1747193328.7112663
       active: 0
     - id: 1747193725.7747848

@@ -10,7 +10,11 @@ Shader "Custom/SDFHoleShader"
         _HoleCount ("Hole Count", Int) = 0
         _HoleRadius ("Hole Radius", Range(0,1)) = 0.2
         _Feather ("Feather", Range(0,0.1)) = 0.02
+
+
+
     }
+    
     SubShader
     {
         //Tags { "RenderType"="Opaque" }
@@ -19,7 +23,7 @@ Shader "Custom/SDFHoleShader"
         Tags {"Queue"="Transparent" "RenderType"="Transparent"}
         
         Blend SrcAlpha OneMinusSrcAlpha
-        ZWrite Off
+        //ZWrite Off
 
         Pass {
             CGPROGRAM
@@ -64,5 +68,3 @@ Shader "Custom/SDFHoleShader"
     }
     //FallBack "Diffuse"
 }
-
-
