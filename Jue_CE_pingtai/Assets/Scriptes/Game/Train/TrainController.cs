@@ -28,6 +28,10 @@ public class TrainController : MonoBehaviourInstanceExample<TrainController>
             return hitgh;
         }
     }
+
+    /// <summary>
+    /// 生成的列车的X轴偏移量
+    /// </summary>
     public float Start_x_offset
     {
         get
@@ -35,8 +39,12 @@ public class TrainController : MonoBehaviourInstanceExample<TrainController>
             float x_offset = 0;
             switch (GameManager.Instance.Substructural_Type)
             {
+                ///这里还需要考虑双线与单线的区别
                 case "che_xian_sui_tui":
                     x_offset = -3.8f;
+                    break;
+                case "che_xian":
+                    x_offset = 0;
                     break;
                 default:
                     x_offset = 3.8f;
@@ -51,19 +59,19 @@ public class TrainController : MonoBehaviourInstanceExample<TrainController>
     private float hitgh_Putong=3.3f;//初始高度
 
     private float chetou_chexiang_length_CR = -28.15f;//与车头连接车厢长度
-    private float chetou_chexiang_length_CHR = -26.38f;
+    private float chetou_chexiang_length_CHR = -26.0f;
     private float chetou_chexiang_length_PUTONG = -20.5f;
 
     private float chexiang_chewei_length_CR = -26.5f;//车厢与车尾连接长度
-    private float chexiang_chewei_length_CHR = -26.65f;//车厢与车尾连接长度
+    private float chexiang_chewei_length_CHR = -26.0f;//车厢与车尾连接长度
     private float chexiang_chewei_length_PUTONG = -20.89f;//车厢与车尾连接长度
 
-    private float step_lenth_CHR = -25.5f;//车厢之间的间隔
+    private float step_lenth_CHR = -26.0f;//车厢之间的间隔
     private float step_lenth_CR = -29.5f;
     private float step_lenth__PUTONG = -20f;
 
     private float che_wei_length_CR = -27.95f;//车尾长度
-    private float che_wei_length_CRH = -25.87f;
+    private float che_wei_length_CRH = -26.0f;
     private float che_wei_length_PUTONG = -20.5f;
 
 
@@ -258,7 +266,7 @@ public class TrainController : MonoBehaviourInstanceExample<TrainController>
 
         //TODO 计算旋转角度这里需要将每个车厢的旋转角度进行计算
         //this.transform.rotation = Quaternion.Euler(_che.rotation);
-        //这里需要将每个车厢的旋转角度进行计算
+        //这里需要将每个车厢的旋转角度进行计算 在路线上的位置与曲线时候的旋转角度
         for (int i = 0; i < chengxiang_list.Count; i++)
         {
             //这里有不同的列车类型区别，目前只考虑了CRH和CR
@@ -275,6 +283,7 @@ public class TrainController : MonoBehaviourInstanceExample<TrainController>
             Debug.LogErrorFormat("车厢数量与解析的车厢数据不匹配，请检查，车厢数量为{0}，解析的车厢数据长度为{1}", chengxiang_list.Count, lichengDta.chexiangdata_list.Count);
         }
 
+        //这里对每个车厢的振动数据进行设置
         foreach (CheXiang item in chengxiang_list)
         {
             var id = item.CheXiangID;

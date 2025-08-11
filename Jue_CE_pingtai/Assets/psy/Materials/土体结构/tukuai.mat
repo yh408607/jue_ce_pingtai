@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: tukuai
-  m_Shader: {fileID: 4800000, guid: ef3cc69afc1348645b11181de30f8c6a, type: 3}
+  m_Shader: {fileID: 4800000, guid: 1814a24daf5700940a36bdf8358adcde, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []

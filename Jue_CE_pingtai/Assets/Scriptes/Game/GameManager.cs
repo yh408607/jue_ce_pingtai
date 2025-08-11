@@ -164,6 +164,9 @@ public class GameManager : MonoBehaviourInstanceExample<GameManager>
             float yuanquxian = data.data.CR_Len;
 
             string VehEffectType = data.data.Substructural_Type;
+            string MulTrain = data.data.MulTrain;
+
+
             switch (VehEffectType)
             {
                 case "1"://车-线-隧-土
@@ -328,8 +331,8 @@ public class GameManager : MonoBehaviourInstanceExample<GameManager>
             case "3"://列车-轨道-路基系统模块
                 linedata = new Che_xian_luji_lineData(paragm);
                 break;
-            case "6":
-
+            case "6"://列车-轨道-线系统模块
+                linedata = new Che_xian_lineData(paragm);
                 break;
             default:
                 //没有配数据暂时车-线-隧

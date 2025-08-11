@@ -25,7 +25,7 @@ public class NetWork :NoramlInstanceExample<NetWork>
 
     //private long resultId = 74;
     //private long resultId = 90;
-    private long resultId = 90;
+    private long resultId = 74;
 
     /// <summary>
     /// 用户是选择查看位移响应还是加速度响应，对应的结果
@@ -85,6 +85,8 @@ public class NetWork :NoramlInstanceExample<NetWork>
 
                 lineParameterData data = new lineParameterData();
                 data.resultId = resultId;
+
+                data.paramNames.Add("MulTrain");
                 data.paramNames.Add("HH_Len");
                 data.paramNames.Add("HH_Len_1");
 
@@ -288,6 +290,16 @@ public class Severlinedata<T>
 public struct Severlinedata_paragm
 {
     /// <summary>
+    /// 车轨类型
+    /// 0：单线单向运行
+   ///1： 双线同向运行
+   ///2：双线异向运行
+    ///3：双线单向运行
+    /// </summary>
+    public string MulTrain;
+
+
+    /// <summary>
     /// 缓和曲线长度
     /// </summary>
     public float HH_Len;
@@ -326,6 +338,12 @@ public struct Severlinedata_paragm
     /// 列车类型。1-高速列车，
     /// </summary>
     public float Train_type;
+
+    /// <summary>
+    /// 第二个列车的种类
+    /// </summary>
+    public float Train_type_1;
+
     /// <summary>
     /// 编组信息，为一个数组
     /// </summary>

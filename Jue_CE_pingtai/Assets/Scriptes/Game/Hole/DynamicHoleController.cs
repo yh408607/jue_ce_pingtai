@@ -26,33 +26,23 @@ public class DynamicHoleController : MonoBehaviour
     {
         objectRenderer =this.transform.Find("shan_child").GetComponent<Renderer>();
         material = objectRenderer.material;
-
-        // 初始化Shader参数
-        //material.SetInt("_HoleCount", 0);
-        //material.SetFloat("_Feather", featherWidth);
-
-        //// 初始化数组
-        //Vector4[] holeCenters = new Vector4[maxHoles];
-        //float[] radii = new float[maxHoles];
-        //material.SetVectorArray("_HoleCenters", holeCenters);
-        //material.SetFloatArray("_HoleRadii", radii);
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //    RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.collider.gameObject.name == "shan_child")
-                {
-                    AddHoleAtHitPoint(hit);
-                }
-            }
-        }
+        //    if (Physics.Raycast(ray, out hit))
+        //    {
+        //        if (hit.collider.gameObject.name == "shan_child")
+        //        {
+        //            AddHoleAtHitPoint(hit);
+        //        }
+        //    }
+        //}
     }
 
     public void AddHoleAtHitPoint(RaycastHit hit)
@@ -61,36 +51,46 @@ public class DynamicHoleController : MonoBehaviour
         Debug.Log("开始挖了没");
     }
 
-    //void UpdateShaderHoles()
-    //{
-    //    Vector4[] holeCenters = new Vector4[maxHoles];
-    //    float[] radii = new float[maxHoles];
+    /// <summary>
+    /// 挖洞方法
+    /// </summary>
+    public void Createrhole()
+    {
+        var hole_pos = this.transform.Find("hole");
+        StartCoroutine(Creatorhole(hole_pos));
+    }
 
-    //    for (int i = 0; i < holeUVPositions.Count; i++)
-    //    {
-    //        holeCenters[i] = holeUVPositions[i];
-    //        radii[i] = holeRadii[i];
-    //    }
+    /// <summary>
+    /// 挖洞
+    /// </summary>
+    private IEnumerator Creatorhole(Transform point)
+    {
+        yield return new WaitForSeconds(1.0f);
+        // 从当前物体位置向前方发射射线
+        Ray ray = new Ray(point.position, point.forward);
+        RaycastHit hit;
 
-    //    material.SetInt("_HoleCount", holeUVPositions.Count);
-    //    material.SetVectorArray("_HoleCenters", holeCenters);
-    //    material.SetFloatArray("_HoleRadii", radii);
-    //}
+        // 射线长度设为10单位
+        if (Physics.Raycast(ray, out hit, 1000))
+        {
+            //Debug.Log("击中物体: " + hit.collider.gameObject.name);
+            // 在场景视图中绘制射线（红色表示击中）
+            // Debug.DrawLine(ray.origin, hit.point, Color.red);
+            if (hit.collider.gameObject.tag == "shan")
+            {
+                var dyn = hit.collider.transform.parent.gameObject.GetComponent<DynamicHoleController>();
+                dyn.AddHoleAtHitPoint(hit);
+            }
+        }
+        else
+        {
+            //在场景视图中绘制射线（绿色表示未击中）
+            Debug.DrawLine(ray.origin, ray.origin + ray.direction * 10, Color.green);
+        }
+    
+    }
 
-    //public void ClearAllHoles()
-    //{
-    //    holeUVPositions.Clear();
-    //    holeRadii.Clear();
-    //    UpdateShaderHoles();
-
-    //    foreach (var marker in holeMarkers)
-    //    {
-    //        Destroy(marker);
-    //    }
-    //    holeMarkers.Clear();
-    //}
-
-    void OnDestroy()
+void OnDestroy()
     {
         // 清理材质实例
         if (Application.isPlaying)

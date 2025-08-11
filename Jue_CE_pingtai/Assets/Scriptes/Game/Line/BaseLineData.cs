@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public abstract class BaseLineData 
 {
@@ -17,6 +16,9 @@ public abstract class BaseLineData
     public float zuozhixian_length;
     public float youzhixian_length;
 
+    /// <summary>
+    /// 圆心位置
+    /// </summary>
     protected Vector3 center
     {
         get
@@ -123,7 +125,7 @@ public abstract class BaseLineData
             float l = length / step * i;
             float theta = l / yuan_R;
             float thetaEnd = thetaStart - theta;
-            Vector3 pos = star_pos + tangentDir * 500;
+            Vector3 pos = star_pos + tangentDir * 300;
             allPoints.Add(pos);
         }
 
@@ -149,6 +151,11 @@ public abstract class BaseLineData
         return temp;
     }
 
+    /// <summary>
+    /// 根里程计算曲线上的点和旋转角度
+    /// </summary>
+    /// <param name="licheng"></param>
+    /// <returns></returns>
     protected virtual bujian_data CalculatePointAndRotation_Quxian(float licheng)
     {
         bujian_data data = new bujian_data();
@@ -209,7 +216,7 @@ public abstract class BaseLineData
             );
 
             // 4. 计算切线方向（直线方向）
-            Vector3 tangentDir = new Vector3(Mathf.Sin(thetaEnd), star_y, -Mathf.Cos(thetaEnd));
+            Vector3 tangentDir = new Vector3(Mathf.Sin(thetaEnd), 0, -Mathf.Cos(thetaEnd));
             var temp_length = licheng - zhixian_quxian;
             Vector3 point = endPos + tangentDir * temp_length;
 
@@ -223,7 +230,11 @@ public abstract class BaseLineData
 
         return data;
     }
-
+    /// <summary>
+    /// 根据里程计算直线上每个点的坐标和旋转角度
+    /// </summary>
+    /// <param name="licheng"></param>
+    /// <returns></returns>
     protected virtual bujian_data CalculatePointAndRotation_Zhixian(float licheng)
     {
         bujian_data data = new bujian_data();
@@ -241,6 +252,28 @@ public abstract class BaseLineData
         data.rotation = rota;
 
         return data;
+    }
+
+    
+    /// <summary>
+    /// /圆曲线的中心位置,为生成土体，建筑等一些单元做坐标点
+    /// </summary>
+    /// <returns></returns>
+    protected virtual Vector3  getYuanquxianCentPos(float leng_suidao)
+    {
+        Vector3 pos = Vector3.zero;
+        if (isquxian)
+        {
+            var temp_licheng = zuozhixian_length + huanqu_length + (leng_suidao / 2);
+            pos = CalculatePointAndRotation_Quxian(temp_licheng).positon;
+        }
+        else
+        {
+            var temp = zuozhixian_length + huanqu_length + (leng_suidao / 2);
+            pos = new Vector3(0, TrainController.Instance.Start_Hitgh, temp);
+        }
+
+        return pos;
     }
 
 }
