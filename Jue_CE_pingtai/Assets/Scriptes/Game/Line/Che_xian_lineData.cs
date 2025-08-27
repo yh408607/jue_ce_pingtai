@@ -36,14 +36,14 @@ public class Che_xian_lineData : BaseLineData
             new Vector3(0,0,-300),
             new Vector3(0, 0,0),
         };
-        CreaterRoad.CreatRoad_new(ludi_point, "Guidao_ludi", "≥ı º∂Œ");
+        CreaterRoad.CreatRoad_new(ludi_point, "Guidao_ludi_D", "≥ı º∂Œ");
         foreach (var item in linePath)
         {
             switch (item.lineType)
             {
-                case "Guidao_ludi":
+                case "Guidao_ludi_D":
                     var path = item.path.ToArray();
-                    CreaterRoad.CreatRoad_new(path, "Guidao_ludi", item.Name);
+                    CreaterRoad.CreatRoad_new(path, "Guidao_ludi_D", item.Name);
                     break;
                 default:
                     break;
@@ -62,7 +62,7 @@ public class Che_xian_lineData : BaseLineData
             ludi_line luji = new ludi_line("zuozhixian");
             luji.path.Add(star_Pos);
             luji.path.Add(end_pos);
-            luji.lineType = "Guidao_ludi";
+            luji.lineType = "Guidao_ludi_D";
             linePath.Add(luji);
 
             star_Pos = end_pos;
@@ -72,7 +72,7 @@ public class Che_xian_lineData : BaseLineData
             List<Vector3> luji_2_path = calculateQuxianPath(temp_tutul_length, star_Pos, (int)temp_tutul_length);
             luji = new ludi_line("quxian");
             luji.path = luji_2_path;
-            luji.lineType = "Guidao_ludi";
+            luji.lineType = "Guidao_ludi_D";
             var temp_index = luji_2_path.Count - 1;
             star_Pos = luji_2_path[temp_index];
             linePath.Add(luji);
@@ -85,7 +85,7 @@ public class Che_xian_lineData : BaseLineData
             Vector3 tangentDir = new Vector3(Mathf.Sin(thetaEnd), 0, -Mathf.Cos(thetaEnd));
             end_pos = star_Pos + tangentDir * 500;
             ludi_line ludi_4 = new ludi_line("youzhixian");
-            ludi_4.lineType = "Guidao_ludi";
+            ludi_4.lineType = "Guidao_ludi_D";
             ludi_4.path.Add(star_Pos);
             ludi_4.path.Add(end_pos);
             linePath.Add(ludi_4);
@@ -100,7 +100,7 @@ public class Che_xian_lineData : BaseLineData
             ludi_line luji = new ludi_line("zhixian");
             luji.path.Add(star_Pos);
             luji.path.Add(end_pos);
-            luji.lineType = "Guidao_ludi";
+            luji.lineType = "Guidao_ludi_D";
 
             linePath.Add(luji);
         }

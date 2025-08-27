@@ -53,7 +53,7 @@ public class Che_xian_sui_tu_lineData : BaseLineData
                 new Vector3(0,0,-200),
                 new Vector3(0, 0,0),
             };
-            CreaterRoad.CreatRoad_new(ludi_point, "Guidao_ludi", "初始段");
+            CreaterRoad.CreatRoad_new(ludi_point, "Guidao_ludi_S", "初始段");
 
             foreach (var item in linePath)
             {
@@ -61,7 +61,7 @@ public class Che_xian_sui_tu_lineData : BaseLineData
                 {
                     case "ludi_1":
                         var path = item.path.ToArray();
-                        CreaterRoad.CreatRoad_new(path, "Guidao_ludi", item.Name);
+                        CreaterRoad.CreatRoad_new(path, "Guidao_ludi_S", item.Name);
                         break;
                     case "suidao":
                         path = item.path.ToArray();
@@ -72,7 +72,7 @@ public class Che_xian_sui_tu_lineData : BaseLineData
                         break;
                     case "ludi_2":
                         path = item.path.ToArray();
-                        CreaterRoad.CreatRoad_new(path, "Guidao_ludi", item.Name);
+                        CreaterRoad.CreatRoad_new(path, "Guidao_ludi_S", item.Name);
                         break;
                     default:
                         break;

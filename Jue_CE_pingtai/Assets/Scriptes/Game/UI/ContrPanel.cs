@@ -18,6 +18,11 @@ public class ContrPanel : BaseUI
 
     private Coroutine coroutine;
 
+    /// <summary>
+    /// 列车播放的速度倍数
+    /// </summary>
+    private int player_beisu;
+
     private bool _isplay;
     private bool isplay
     {
@@ -87,7 +92,13 @@ public class ContrPanel : BaseUI
 
         dropdownCallback(0);
 
-       // mask = m_UiUitil.Get("test_image/mask")._image;
+        // mask = m_UiUitil.Get("test_image/mask")._image;
+
+        var _sudu_silder = m_UiUitil.Get("player_beishu")._slider;
+        _sudu_silder.onValueChanged.AddListener(playersudu_silderValueChangeCallback);
+        _sudu_silder.wholeNumbers = true;
+        _sudu_silder.value = 1;
+        player_beisu = 1;
         
     }
 
@@ -171,8 +182,9 @@ public class ContrPanel : BaseUI
         {
             var temp = old_value;
             yield return new WaitForSeconds(delayTime);
-
+            //yield return new WaitForEndOfFrame();
             temp++;
+            temp +=player_beisu;
             if (temp > contrl_slider.maxValue) break;
             contrl_slider.value = temp; 
         }
@@ -410,6 +422,14 @@ public class ContrPanel : BaseUI
         //}
 
 
+    }
+
+
+    private void playersudu_silderValueChangeCallback(float value)
+    {
+        int temp = Mathf.FloorToInt(value);
+        player_beisu = temp;
+        m_UiUitil.Get("player_beishu/bei_text")._text.text = "播放速度：X" + player_beisu;
     }
 
     private void Update()

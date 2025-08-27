@@ -16,16 +16,16 @@ public class DynamicHoleController : MonoBehaviour
 
     private Material material;
     private Renderer objectRenderer;
-    //private List<Vector2> holeUVPositions = new List<Vector2>();
-    //private List<float> holeRadii = new List<float>();
-    //private List<GameObject> holeMarkers = new List<GameObject>();
+    public float holeRadius = 0.12f;
+    public float featherWidth = 0.00f;
 
-    public float holeSize = 0.1f;
+    public float holeSize = 0.2f;
 
     void Start()
     {
         objectRenderer =this.transform.Find("shan_child").GetComponent<Renderer>();
         material = objectRenderer.material;
+        Debug.LogFormat("获取了{0}", material.name);
     }
 
     void Update()
@@ -47,7 +47,11 @@ public class DynamicHoleController : MonoBehaviour
 
     public void AddHoleAtHitPoint(RaycastHit hit)
     {
-        material.SetVector("_HoleData",new Vector4(hit.textureCoord.x, hit.textureCoord.y, holeSize, 0));
+        //material.SetVector("_HoleData",new Vector4(hit.textureCoord.x, hit.textureCoord.y, holeSize, 0));
+        material.SetFloat("_HoleRadius", holeRadius);
+        material.SetFloat("_Feather", featherWidth);
+        material.SetVector("_HolePos", new Vector4(hit.textureCoord.x, hit.textureCoord.y, 0, 0));
+
         Debug.Log("开始挖了没");
     }
 
