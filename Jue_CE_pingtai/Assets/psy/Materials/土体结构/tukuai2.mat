@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: tukuai2
-  m_Shader: {fileID: 4800000, guid: ef3cc69afc1348645b11181de30f8c6a, type: 3}
+  m_Shader: {fileID: 4800000, guid: 2d955e4b59f483b449b4771d8f949b74, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -72,12 +72,12 @@ Material:
     - _Cutoff: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Feather: 0.02
+    - _Feather: 0.05
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
     - _HoleCount: 0
-    - _HoleRadius: 0.2
+    - _HoleRadius: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -93,5 +93,9 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _HolePos: {r: 0, g: 0, b: 0, a: 0}
+    - _HolePosition1: {r: 0.5, g: 0.5, b: 0, a: 0}
+    - _HolePosition2: {r: 0.3, g: 0.3, b: 0, a: 0}
+    - _HolePosition3: {r: 0.7, g: 0.3, b: 0, a: 0}
     - _WireColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

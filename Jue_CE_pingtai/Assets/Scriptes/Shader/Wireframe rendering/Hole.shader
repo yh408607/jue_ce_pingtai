@@ -20,15 +20,20 @@ Shader "Custom/SDFHoleShader"
         //Tags { "RenderType"="Opaque" }
         //LOD 200
 
-        Tags {"Queue"="Transparent" "RenderType"="Transparent"}
+        Tags {
+            "Queue"="Transparent"
+            "RenderType"="Transparent"
+            "IgnoreProjector"="True"  // 这对WebGL很重要
+            }
         
         Blend SrcAlpha OneMinusSrcAlpha
-        //ZWrite Off
+        ZWrite Off
 
         Pass {
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+            #pragma target 3.0 
             
             #include "UnityCG.cginc"
             
@@ -66,5 +71,5 @@ Shader "Custom/SDFHoleShader"
         }
 
     }
-    //FallBack "Diffuse"
+        FallBack "Transparent/Diffuse"  // WebGL备用方案
 }
